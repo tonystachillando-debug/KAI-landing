@@ -99,14 +99,14 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
         >
             <div className="w-full max-w-6xl h-auto md:h-[80vh] min-h-[80vh] bg-black rounded-3xl p-6 md:p-16 flex flex-col md:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.05)] border border-white/10 overflow-hidden transform-gpu origin-top">
                 {/* Text Content */}
-                <div className="flex-1 flex flex-col justify-center h-full z-10 pr-0 md:pr-8">
-                    <div className="text-xs font-mono text-white/50 uppercase tracking-widest mb-6 border-b border-white/10 pb-4">
+                <div className="flex-none md:flex-1 flex flex-col justify-center w-full z-10 pr-0 md:pr-8">
+                    <div className="text-xs font-mono text-white/50 uppercase tracking-widest mb-4 md:mb-6 border-b border-white/10 pb-4">
                         Phase 0{protocol.id} // {protocol.type.toUpperCase()}
                     </div>
-                    <h3 className="text-4xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-[1] mb-6">
+                    <h3 className="text-3xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-[1] mb-2 md:mb-6">
                         {protocol.title}
                     </h3>
-                    <p className="text-white/70 md:text-lg max-w-md font-sans">
+                    <p className="text-white/70 md:text-lg max-w-md font-sans hidden md:block">
                         {protocol.desc}
                     </p>
                 </div>

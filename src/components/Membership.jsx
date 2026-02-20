@@ -1,5 +1,5 @@
 import React from 'react';
-
+import { Link } from 'react-router-dom';
 
 
 const Membership = () => {
@@ -29,7 +29,7 @@ const Membership = () => {
                             <li className="flex items-center gap-2"><span className="text-orange">~</span> Ad-Supported Experience</li>
                         </ul>
                     </div>
-                    <a href="/checkout?tier=starter" className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block">Secure Free Tier</a>
+                    <Link to="/checkout?tier=starter" className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block">Secure Free Tier</Link>
                 </div>
 
                 {/* PRO TIER */}
@@ -44,7 +44,7 @@ const Membership = () => {
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> 100% Ad-Free Experience</li>
                         </ul>
                     </div>
-                    <a href="/checkout?tier=pro" className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block">Initialize Pro</a>
+                    <Link to="/checkout?tier=pro" className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block">Initialize Pro</Link>
                 </div>
 
                 {/* ENTERPRISE TIER */}
@@ -59,7 +59,7 @@ const Membership = () => {
                             <li className="flex items-center gap-2"><span className="text-orange">✓</span> 100% Ad-Free Experience</li>
                         </ul>
                     </div>
-                    <a href="/checkout?tier=enterprise" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block">Secure Enterprise Setup</a>
+                    <Link to="/checkout?tier=enterprise" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block">Secure Enterprise Setup</Link>
                 </div>
             </div>
 
