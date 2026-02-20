@@ -42,7 +42,7 @@ const Navbar = () => {
                     <a href="#scale" className="hover:text-teal transition-colors">Pricing</a>
                 </div>
                 <a
-                    href="#demo"
+                    href="#scale"
                     className="px-6 py-2.5 rounded-2xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 bg-orange text-white"
                 >
                     Initialize KAI
