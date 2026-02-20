@@ -6,7 +6,7 @@ import AdaptiveRegimen from './features/AdaptiveRegimen';
 const Features = () => {
     return (
         <section id="features" className="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
-            <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-end gap-8">
+            <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8">
                 <h2 className="text-4xl md:text-6xl font-sans font-semibold tracking-tighter text-white leading-[0.9]">
                     Total <br />
                     <span className="text-orange font-normal">Narrative Control</span>

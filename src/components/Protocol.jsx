@@ -97,9 +97,9 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
             // style={{ top: 0, paddingTop: `${index * 2}rem` }} // Slight offset if desired
             style={{ top: '0vh' }}
         >
-            <div className="w-full max-w-6xl h-[80vh] bg-black rounded-3xl p-8 md:p-16 flex flex-col md:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.05)] border border-white/10 overflow-hidden transform-gpu origin-top">
+            <div className="w-full max-w-6xl h-auto md:h-[80vh] min-h-[80vh] bg-black rounded-3xl p-6 md:p-16 flex flex-col md:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.05)] border border-white/10 overflow-hidden transform-gpu origin-top">
                 {/* Text Content */}
-                <div className="flex-1 flex flex-col justify-center h-full z-10 pr-8">
+                <div className="flex-1 flex flex-col justify-center h-full z-10 pr-0 md:pr-8">
                     <div className="text-xs font-mono text-white/50 uppercase tracking-widest mb-6 border-b border-white/10 pb-4">
                         Phase 0{protocol.id} // {protocol.type.toUpperCase()}
                     </div>
@@ -114,7 +114,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
                 {/* Animation Container */}
                 <div
                     ref={animRef}
-                    className="flex-1 w-full h-full min-h-[40vh] bg-charcoal rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative perspective-[1000px] mt-8 md:mt-0"
+                    className="flex-1 w-full h-full min-h-[35vh] md:min-h-[40vh] bg-charcoal rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative perspective-[1000px] mt-8 md:mt-0"
                 >
                     {isVoice && (
                         <div className="w-full h-full flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black to-charcoal">
