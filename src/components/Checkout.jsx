@@ -18,13 +18,13 @@ const Checkout = () => {
     };
 
     const tierDetails = {
-        starter: { name: 'Starter', price: '$0', desc: 'Ad-Supported Experience' },
-        pro: { name: 'Pro', price: billing === 'yearly' ? '$468' : '$79', desc: '100% Ad-Free Experience' },
-        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$149', desc: 'Priority HAIMDALL Processing' },
+        pro: { name: 'Pro', price: billing === 'yearly' ? '$468' : '$79', desc: 'Standard KAI AI Agent' },
+        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$149', desc: 'Priority Support Included' },
+        scale: { name: 'Scale', price: billing === 'yearly' ? '$2,988' : '$499', desc: 'Priority HAIMDALL Processing' },
         enterprise: { name: 'Enterprise', price: billing === 'yearly' ? '$5,988' : '$999', desc: 'Custom Training Models' },
     };
 
-    const selectedTier = tierDetails[tier] || tierDetails['business'];
+    const selectedTier = tierDetails[tier] || tierDetails['scale'];
     const displayPeriod = selectedTier.price === '$0' ? '/mo' : (billing === 'yearly' ? '/yr' : '/mo');
     const priceNumber = selectedTier.price.replace('$', '').replace(',', '');
 

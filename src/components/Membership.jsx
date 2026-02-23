@@ -31,44 +31,27 @@ const Membership = () => {
 
             {/* Pricing Cards */}
             <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6 w-full mb-32 max-w-7xl mx-auto">
-                {/* FREE TIER */}
+                {/* PRO TIER */}
                 <div className="bg-charcoal rounded-2xl p-8 border border-white/5 flex flex-col justify-between">
                     <div>
-                        <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-white">Starter</h3>
-                        <div className="mb-6 flex flex-col h-16 justify-center">
-                            <div className="text-4xl font-bold font-sans text-white">$0<span className="text-lg text-white/50 font-normal">/mo</span></div>
-                        </div>
-                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
-                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Supports Telegram, Discord & X</li>
-                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Standard KAI AI Agent</li>
-                            <li className="flex items-center gap-2"><span className="text-orange">~</span> Ad-Supported Experience</li>
-                        </ul>
-                    </div>
-                    <Link to="/checkout?tier=starter" className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto">Secure Free Tier</Link>
-                </div>
-
-                {/* PRO TIER */}
-                <div className="bg-charcoal rounded-2xl p-8 border border-teal/20 flex flex-col justify-between">
-                    <div>
-                        <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Pro</h3>
+                        <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-white">Pro</h3>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
                                 {isYearly ? '$39' : '$79'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
-                            {isYearly && <span className="text-xs text-teal mt-1">Billed $468 yearly</span>}
+                            {isYearly && <span className="text-xs text-white/50 mt-1">Billed $468 yearly</span>}
                         </div>
                         <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> Supports Telegram, Discord & X</li>
-                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Advanced KAI AI Agent</li>
-                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> 100% Ad-Free Experience</li>
+                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Standard KAI AI Agent</li>
+                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Standard Support</li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=pro&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-teal text-white font-bold text-sm hover:bg-teal/20 transition-colors text-center block mt-auto">Initialize Pro</Link>
+                    <Link to={`/checkout?tier=pro&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto">Initialize Pro</Link>
                 </div>
 
-                {/* BUSINESS TIER (Most Popular) */}
-                <div className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)] transform lg:-translate-y-4">
-                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teal text-black text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Most Popular</div>
+                {/* BUSINESS TIER */}
+                <div className="bg-charcoal rounded-2xl p-8 border border-teal/20 flex flex-col justify-between">
                     <div>
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Business</h3>
                         <div className="mb-6 flex flex-col h-16 justify-center">
@@ -77,14 +60,34 @@ const Membership = () => {
                             </div>
                             {isYearly && <span className="text-xs text-teal mt-1">Billed $948 yearly</span>}
                         </div>
-                        <ul className="flex flex-col gap-3 text-sm text-white/80 mb-8 font-sans">
+                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> Everything in Pro</li>
+                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Advanced KAI AI Agent</li>
+                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Priority Support</li>
+                        </ul>
+                    </div>
+                    <Link to={`/checkout?tier=business&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-teal text-white font-bold text-sm hover:bg-teal/20 transition-colors text-center block mt-auto">Deploy Business</Link>
+                </div>
+
+                {/* SCALE TIER (Most Popular) */}
+                <div className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)] transform lg:-translate-y-4">
+                    <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teal text-black text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Most Popular</div>
+                    <div>
+                        <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Scale</h3>
+                        <div className="mb-6 flex flex-col h-16 justify-center">
+                            <div className="text-4xl font-bold font-sans text-white">
+                                {isYearly ? '$249' : '$499'}<span className="text-lg text-white/50 font-normal">/mo</span>
+                            </div>
+                            {isYearly && <span className="text-xs text-teal mt-1">Billed $2,988 yearly</span>}
+                        </div>
+                        <ul className="flex flex-col gap-3 text-sm text-white/80 mb-8 font-sans">
+                            <li className="flex items-center gap-2"><span className="text-teal">✓</span> Everything in Business</li>
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> Priority HAIMDALL Processing</li>
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> Custom Brand Persona</li>
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> API Access</li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=business&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto">Deploy Business</Link>
+                    <Link to={`/checkout?tier=scale&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto">Deploy Scale</Link>
                 </div>
 
                 {/* ENTERPRISE TIER */}
