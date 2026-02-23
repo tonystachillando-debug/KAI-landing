@@ -3,8 +3,9 @@ import { useSearchParams } from 'react-router-dom';
 
 const Checkout = () => {
     const [searchParams] = useSearchParams();
-    const tier = searchParams.get('tier') || 'pro'; // default to pro if none provided
-    const [paymentMethod, setPaymentMethod] = useState('crypto'); // 'crypto' or 'card'
+    const tier = searchParams.get('tier') || 'business';
+    const billing = searchParams.get('billing') || 'monthly';
+    const [paymentMethod, setPaymentMethod] = useState('crypto');
     const [isProcessing, setIsProcessing] = useState(false);
 
     const handleCheckout = (e) => {
@@ -17,12 +18,15 @@ const Checkout = () => {
     };
 
     const tierDetails = {
-        starter: { name: 'Starter (Free)', price: '$0', desc: 'Ad-Supported Experience' },
-        pro: { name: 'Pro', price: '$30', desc: '100% Ad-Free Experience' },
-        enterprise: { name: 'Enterprise', price: '$1,000', desc: 'Custom Training Models' },
+        starter: { name: 'Starter', price: '$0', desc: 'Ad-Supported Experience' },
+        pro: { name: 'Pro', price: billing === 'yearly' ? '$288' : '$30', desc: '100% Ad-Free Experience' },
+        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$99', desc: 'Priority HAIMDALL Processing' },
+        enterprise: { name: 'Enterprise', price: billing === 'yearly' ? '$9,600' : '$1,000', desc: 'Custom Training Models' },
     };
 
-    const selectedTier = tierDetails[tier] || tierDetails['pro'];
+    const selectedTier = tierDetails[tier] || tierDetails['business'];
+    const displayPeriod = selectedTier.price === '$0' ? '/mo' : (billing === 'yearly' ? '/yr' : '/mo');
+    const priceNumber = selectedTier.price.replace('$', '').replace(',', '');
 
     return (
         <div className="min-h-screen bg-black text-white font-sans flex flex-col md:flex-row">
@@ -48,7 +52,7 @@ const Checkout = () => {
                     </h1>
                     <div className="text-5xl lg:text-6xl font-bold font-sans text-white mb-12">
                         {selectedTier.price}
-                        <span className="text-xl text-white/50 font-normal">/mo</span>
+                        <span className="text-xl text-white/50 font-normal">{displayPeriod}</span>
                     </div>
 
                     <ul className="flex flex-col gap-4 text-sm text-white/70 font-sans border-t border-white/10 pt-8">
@@ -110,7 +114,7 @@ const Checkout = () => {
                                         <button type="button" className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-colors">Copy</button>
                                     </div>
 
-                                    <p className="text-xs text-white/40 font-mono">Send exactly {selectedTier.price === '$0' ? '0.00' : '30.00'} USDT to initialize.</p>
+                                    <p className="text-xs text-white/40 font-mono">Send exactly {priceNumber === '0' ? '0.00' : `${priceNumber}.00`} USDT to initialize.</p>
                                 </div>
                             </div>
                         )}
