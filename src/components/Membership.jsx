@@ -2,7 +2,7 @@ import React, { useState } from 'react';
 import { Link } from 'react-router-dom';
 
 const Membership = () => {
-    const [isYearly, setIsYearly] = useState(false);
+    const [isYearly, setIsYearly] = useState(true);
 
     return (
         <section id="scale" className="py-32 px-4 md:px-8 bg-black w-full max-w-[90rem] mx-auto text-white flex flex-col items-center">

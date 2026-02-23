@@ -4,7 +4,7 @@ import { useSearchParams } from 'react-router-dom';
 const Checkout = () => {
     const [searchParams] = useSearchParams();
     const tier = searchParams.get('tier') || 'business';
-    const billing = searchParams.get('billing') || 'monthly';
+    const billing = searchParams.get('billing') || 'yearly';
     const [paymentMethod, setPaymentMethod] = useState('crypto');
     const [isProcessing, setIsProcessing] = useState(false);
 
