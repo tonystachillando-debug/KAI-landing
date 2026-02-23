@@ -53,9 +53,9 @@ const Membership = () => {
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Pro</h3>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
-                                {isYearly ? '$24' : '$30'}<span className="text-lg text-white/50 font-normal">/mo</span>
+                                {isYearly ? '$39' : '$79'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
-                            {isYearly && <span className="text-xs text-teal mt-1">Billed $288 yearly</span>}
+                            {isYearly && <span className="text-xs text-teal mt-1">Billed $468 yearly</span>}
                         </div>
                         <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
                             <li className="flex items-center gap-2"><span className="text-teal">✓</span> Supports Telegram, Discord & X</li>
@@ -73,7 +73,7 @@ const Membership = () => {
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Business</h3>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
-                                {isYearly ? '$79' : '$99'}<span className="text-lg text-white/50 font-normal">/mo</span>
+                                {isYearly ? '$79' : '$149'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
                             {isYearly && <span className="text-xs text-teal mt-1">Billed $948 yearly</span>}
                         </div>
@@ -93,9 +93,9 @@ const Membership = () => {
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-orange">Enterprise</h3>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
-                                {isYearly ? '$800' : '$1,000'}<span className="text-lg text-white/50 font-normal">/mo</span>
+                                {isYearly ? '$499' : '$999'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
-                            {isYearly && <span className="text-xs text-orange mt-1">Billed $9,600 yearly</span>}
+                            {isYearly && <span className="text-xs text-orange mt-1">Billed $5,988 yearly</span>}
                         </div>
                         <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
                             <li className="flex items-center gap-2"><span className="text-orange">✓</span> Sub-second Reaction Times</li>

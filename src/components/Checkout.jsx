@@ -19,9 +19,9 @@ const Checkout = () => {
 
     const tierDetails = {
         starter: { name: 'Starter', price: '$0', desc: 'Ad-Supported Experience' },
-        pro: { name: 'Pro', price: billing === 'yearly' ? '$288' : '$30', desc: '100% Ad-Free Experience' },
-        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$99', desc: 'Priority HAIMDALL Processing' },
-        enterprise: { name: 'Enterprise', price: billing === 'yearly' ? '$9,600' : '$1,000', desc: 'Custom Training Models' },
+        pro: { name: 'Pro', price: billing === 'yearly' ? '$468' : '$79', desc: '100% Ad-Free Experience' },
+        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$149', desc: 'Priority HAIMDALL Processing' },
+        enterprise: { name: 'Enterprise', price: billing === 'yearly' ? '$5,988' : '$999', desc: 'Custom Training Models' },
     };
 
     const selectedTier = tierDetails[tier] || tierDetails['business'];
