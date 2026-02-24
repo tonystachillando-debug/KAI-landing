@@ -105,9 +105,63 @@ const Philosophy = () => {
                     <div className="flex flex-col items-center">
                         <h3 className="text-4xl md:text-6xl lg:text-8xl font-sans font-bold text-wrap leading-tight max-w-5xl text-center">
                             <span className="text-white text-balance block my-2 md:my-4">
-                                {splitText("It brought it to life.", "word-2 text-white")}
+                                {splitText("KAI brought it to life.", "word-2 text-white")}
                             </span>
                         </h3>
+                    </div>
+
+                    {/* Square Video Carousel */}
+                    <div className="w-full max-w-5xl mx-auto mt-8 md:mt-16 overflow-hidden">
+                        <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-12 pb-8 scrollbar-hide px-4 md:px-0">
+
+                            {/* Video 1 */}
+                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,161,159,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center">
+                                <video
+                                    className="w-full h-full object-cover rounded-3xl"
+                                    src="/KAI.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    onError={(e) => e.target.style.display = 'none'}
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40">
+                                    <div className="w-16 h-16 rounded-full bg-teal/80 flex items-center justify-center backdrop-blur-md">
+                                        <div className="w-4 h-4 rounded-full bg-white animate-pulse"></div>
+                                    </div>
+                                </div>
+                                <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                                    <span className="text-xs font-mono tracking-widest text-teal border border-teal/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">KAI NATIVE</span>
+                                </div>
+                            </div>
+
+                            {/* Video 2 */}
+                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(247,147,26,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center">
+                                <video
+                                    className="w-full h-full object-cover rounded-3xl"
+                                    src="/KA%20DEF%20STREAMER.mp4"
+                                    autoPlay
+                                    loop
+                                    muted
+                                    playsInline
+                                    onError={(e) => e.target.style.display = 'none'}
+                                />
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40">
+                                    <div className="w-16 h-16 rounded-full bg-orange/80 flex items-center justify-center backdrop-blur-md">
+                                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
+                                    </div>
+                                </div>
+                                <div className="absolute bottom-6 left-6 flex items-center gap-3">
+                                    <span className="text-xs font-mono tracking-widest text-orange border border-orange/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">STREAMER DEFENSE</span>
+                                </div>
+                            </div>
+
+                            {/* Placeholder for 3rd Video if they add one */}
+                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-dashed border-white/20 relative group bg-black/20 flex flex-col justify-center items-center">
+                                <div className="text-white/30 text-sm font-mono tracking-widest uppercase">Intel Feed Offline</div>
+                            </div>
+
+                        </div>
                     </div>
                 </div>
             </div>
