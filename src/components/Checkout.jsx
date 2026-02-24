@@ -26,14 +26,17 @@ const Checkout = () => {
     };
 
     const tierDetails = {
-        pro: { name: 'Pro', price: billing === 'yearly' ? '$468' : '$79', desc: 'Standard KAI AI Agent' },
-        business: { name: 'Business', price: billing === 'yearly' ? '$948' : '$149', desc: 'Priority Support Included' },
-        scale: { name: 'Scale', price: billing === 'yearly' ? '$2,988' : '$499', desc: 'Priority HAIMDALL Processing' },
-        enterprise: { name: 'Enterprise', price: billing === 'yearly' ? '$5,988' : '$999', desc: 'Custom Training Models' },
+        starter: { name: 'Starter', price: billing === 'yearly' ? '$948' : '$99', desc: 'Minimal HAIMDALL rules & capped engagement' },
+        growth: { name: 'Growth Guard', price: billing === 'yearly' ? '$9,588' : '$999', desc: 'Governance dashboard & escalation windows' },
+        launch: { name: 'Launch Shield', price: '$7,500', desc: 'Pre-launch hardening & war room coverage' },
+        institutional: { name: 'Institutional', price: billing === 'yearly' ? '$72,000' : '$7,500', desc: '24/7 human coverage & full KAI integration' },
     };
 
-    const selectedTier = tierDetails[tier] || tierDetails['scale'];
-    const displayPeriod = selectedTier.price === '$0' ? '/mo' : (billing === 'yearly' ? '/yr' : '/mo');
+    const selectedTier = tierDetails[tier] || tierDetails['growth'];
+    let displayPeriod = (billing === 'yearly' ? '/yr' : '/mo');
+    if (tier === 'launch' || selectedTier.name === 'Launch Shield') {
+        displayPeriod = ' / fixed';
+    }
     const priceNumber = selectedTier.price.replace('$', '').replace(',', '');
 
     return (
