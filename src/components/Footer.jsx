@@ -8,8 +8,8 @@ const Footer = () => {
                     <a href="https://amazix.com" target="_blank" rel="noopener noreferrer" className="inline-block mb-6">
                         <img src="https://amazix.com/assets/images/logo/amazix-logo.webp" alt="AmaZix Logo" className="h-10 opacity-90 hover:opacity-100 transition-opacity" />
                     </a>
-                    <h2 className="text-4xl font-sans font-bold tracking-tight mb-6 flex items-center gap-4">
-                        KAI
+                    <h2 className="mb-6 flex items-center gap-4">
+                        <img src="/KAI.png" alt="KAI Logo" className="h-8" />
                         <span className="text-[10px] font-mono tracking-widest text-orange border border-orange/30 px-2 py-0.5 rounded-full">AMAZIX</span>
                     </h2>
                     <p className="text-white/50 text-sm font-sans leading-relaxed">

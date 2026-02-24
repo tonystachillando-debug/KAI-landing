@@ -1,10 +1,12 @@
-import React, { useEffect, useRef } from 'react';
+import React, { useEffect, useRef, useState } from 'react';
 import gsap from 'gsap';
 import { ScrollTrigger } from 'gsap/ScrollTrigger';
+import { X } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
 const Philosophy = () => {
+    const [activeVideo, setActiveVideo] = useState(null);
     const containerRef = useRef(null);
     const text1Ref = useRef(null);
     const text2Ref = useRef(null);
@@ -115,7 +117,10 @@ const Philosophy = () => {
                         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-12 pb-8 scrollbar-hide px-4 md:px-0">
 
                             {/* Video 1 */}
-                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,161,159,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center">
+                            <div
+                                onClick={() => setActiveVideo('/KAI.mp4')}
+                                className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,161,159,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center cursor-pointer"
+                            >
                                 <video
                                     className="w-full h-full object-cover rounded-3xl"
                                     src="/KAI.mp4"
@@ -125,9 +130,9 @@ const Philosophy = () => {
                                     playsInline
                                     onError={(e) => e.target.style.display = 'none'}
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40">
-                                    <div className="w-16 h-16 rounded-full bg-teal/80 flex items-center justify-center backdrop-blur-md">
-                                        <div className="w-4 h-4 rounded-full bg-white animate-pulse"></div>
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40 xl:opacity-100 xl:bg-transparent">
+                                    <div className="w-16 h-16 rounded-full bg-teal/80 flex items-center justify-center backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
+                                        <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                     </div>
                                 </div>
                                 <div className="absolute bottom-6 left-6 flex items-center gap-3">
@@ -136,7 +141,10 @@ const Philosophy = () => {
                             </div>
 
                             {/* Video 2 */}
-                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(247,147,26,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center">
+                            <div
+                                onClick={() => setActiveVideo('/KA%20DEF%20STREAMER.mp4')}
+                                className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(247,147,26,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center cursor-pointer"
+                            >
                                 <video
                                     className="w-full h-full object-cover rounded-3xl"
                                     src="/KA%20DEF%20STREAMER.mp4"
@@ -146,8 +154,8 @@ const Philosophy = () => {
                                     playsInline
                                     onError={(e) => e.target.style.display = 'none'}
                                 />
-                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40">
-                                    <div className="w-16 h-16 rounded-full bg-orange/80 flex items-center justify-center backdrop-blur-md">
+                                <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40 xl:opacity-100 xl:bg-transparent">
+                                    <div className="w-16 h-16 rounded-full bg-orange/80 flex items-center justify-center backdrop-blur-md opacity-0 group-hover:opacity-100 transition-opacity duration-300">
                                         <svg className="w-8 h-8 text-white ml-1" fill="currentColor" viewBox="0 0 24 24"><path d="M8 5v14l11-7z" /></svg>
                                     </div>
                                 </div>
@@ -165,6 +173,33 @@ const Philosophy = () => {
                     </div>
                 </div>
             </div>
+
+            {/* Full Screen Video Modal */}
+            {activeVideo && (
+                <div
+                    className="fixed inset-0 z-[100] flex items-center justify-center bg-black/90 backdrop-blur-lg"
+                    onClick={() => setActiveVideo(null)}
+                >
+                    <button
+                        onClick={() => setActiveVideo(null)}
+                        className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-3 rounded-full z-[110]"
+                    >
+                        <X className="w-6 h-6" />
+                    </button>
+                    <div
+                        className="relative w-full max-w-5xl aspect-square md:aspect-video px-4"
+                        onClick={(e) => e.stopPropagation()}
+                    >
+                        <video
+                            className="w-full h-full rounded-2xl shadow-[0_0_100px_rgba(0,0,0,0.5)] bg-black"
+                            src={activeVideo}
+                            autoPlay
+                            controls
+                            playsInline
+                        />
+                    </div>
+                </div>
+            )}
         </section>
     );
 };
