@@ -124,7 +124,7 @@ const CinematicDashboard = () => {
                         Experience the <span className="text-transparent bg-clip-text bg-gradient-to-r from-teal to-orange">Dashboard</span>
                     </h2>
                     <p className="text-xl md:text-2xl font-sans text-white/50 max-w-2xl mx-auto">
-                        One unified intelligence hub. KAI actively engages your community on Telegram, Discord, and X, while HAIMDALL silently neutralizes threats (visible only from this command center).
+                        One unified intelligence hub. KAI actively engages your community on Telegram, Discord, Twitch, and X.
                     </p>
                 </div>
 

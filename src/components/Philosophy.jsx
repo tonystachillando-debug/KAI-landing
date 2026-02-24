@@ -160,7 +160,7 @@ const Philosophy = () => {
                                     </div>
                                 </div>
                                 <div className="absolute bottom-6 left-6 flex items-center gap-3">
-                                    <span className="text-xs font-mono tracking-widest text-orange border border-orange/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">STREAMER DEFENSE</span>
+                                    <span className="text-xs font-mono tracking-widest text-orange border border-orange/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">STREAMER SUPPORT</span>
                                 </div>
                             </div>
 

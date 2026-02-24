@@ -75,7 +75,7 @@ const Hero = () => {
                 <div className="w-full md:w-[55%] lg:w-[60%] flex flex-col justify-center h-full relative z-20 mt-16 md:mt-0">
                     <div className="overflow-hidden mb-[-0.5rem]">
                         <h1 ref={addToRefs} className="text-white text-5xl md:text-6xl lg:text-[5.5rem] font-sans font-bold tracking-tighter leading-[1] pb-2">
-                            Survive the Listing.
+                            Survive the Chaos.
                         </h1>
                     </div>
                     <div className="overflow-hidden">
