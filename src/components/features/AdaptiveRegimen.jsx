@@ -62,10 +62,10 @@ const AdaptiveRegimen = () => {
 
     return (
         <div ref={containerRef} className="relative w-full h-80 bg-black rounded-2xl p-8 overflow-hidden border border-white/10 flex flex-col justify-between">
-            <div className="text-xs font-mono text-white/50 uppercase tracking-widest">Action Hooks</div>
+            <div className="text-xs font-mono text-white/50 uppercase tracking-widest">Scheduling Engagement</div>
 
             <div className="relative mt-8">
-                <div className="text-sm font-sans font-medium text-white/70 mb-4">Automated Enforcement</div>
+                <div className="text-sm font-sans font-medium text-white/70 mb-4">Plan Narrative Rhythm</div>
                 <div className="flex justify-between items-center gap-2 bg-charcoal rounded-2xl p-4 shadow-sm border border-white/5">
                     {DAYS.map((day, i) => (
                         <div
@@ -80,7 +80,7 @@ const AdaptiveRegimen = () => {
 
                 <div className="mt-6 flex justify-end">
                     <button className="save-btn px-6 py-2 rounded-full border border-white/20 text-xs font-semibold font-sans uppercase tracking-wider text-white flex items-center gap-2">
-                        Deploy Hook Action
+                        Schedule Burst
                     </button>
                 </div>
 
