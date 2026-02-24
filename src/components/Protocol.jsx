@@ -93,11 +93,11 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
     return (
         <div
             ref={(el) => (cardsRef.current[index] = el)}
-            className="sticky hover-container w-full h-[100vh] flex items-center justify-center p-4 md:p-12 mb-24 last:mb-0"
+            className="w-full h-auto md:h-[100vh] flex items-center justify-center p-4 md:p-12 mb-8 md:mb-24 last:mb-0"
             // style={{ top: 0, paddingTop: `${index * 2}rem` }} // Slight offset if desired
             style={{ top: '0vh' }}
         >
-            <div className="w-full max-w-6xl h-auto md:h-[80vh] min-h-[80vh] bg-black rounded-3xl p-6 md:p-16 flex flex-col md:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.05)] border border-white/10 overflow-hidden transform-gpu origin-top">
+            <div className="w-full max-w-6xl h-auto md:h-[80vh] md:min-h-[80vh] bg-black rounded-3xl p-6 md:p-16 flex flex-col md:flex-row shadow-[0_30px_60px_rgba(0,0,0,0.05)] border border-white/10 overflow-hidden transform-gpu origin-top">
                 {/* Text Content */}
                 <div className="flex-none md:flex-1 flex flex-col justify-center w-full z-10 pr-0 md:pr-8">
                     <div className="text-xs font-mono text-white/50 uppercase tracking-widest mb-4 md:mb-6 border-b border-white/10 pb-4">
@@ -106,7 +106,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
                     <h3 className="text-3xl md:text-5xl lg:text-6xl font-sans font-bold text-white tracking-tight leading-[1] mb-2 md:mb-6">
                         {protocol.title}
                     </h3>
-                    <p className="text-white/70 md:text-lg max-w-md font-sans hidden md:block">
+                    <p className="text-white/70 md:text-lg max-w-md font-sans">
                         {protocol.desc}
                     </p>
                 </div>
@@ -114,7 +114,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
                 {/* Animation Container */}
                 <div
                     ref={animRef}
-                    className="flex-1 w-full h-full min-h-[35vh] md:min-h-[40vh] bg-charcoal rounded-2xl border border-white/5 overflow-hidden flex items-center justify-center relative perspective-[1000px] mt-8 md:mt-0"
+                    className="hidden md:flex flex-1 w-full h-full min-h-[35vh] md:min-h-[40vh] bg-charcoal rounded-2xl border border-white/5 overflow-hidden items-center justify-center relative perspective-[1000px] mt-8 md:mt-0"
                 >
                     {isVoice && (
                         <div className="w-full h-full flex items-center justify-center relative overflow-hidden bg-gradient-to-br from-black to-charcoal">
@@ -200,45 +200,49 @@ const Protocol = () => {
 
     useEffect(() => {
         let ctx = gsap.context(() => {
-            // Loop through all cards except the last one
-            cardsRef.current.forEach((card, i) => {
-                if (i === cardsRef.current.length - 1) return; // Don't animate the last card out
+            let mm = gsap.matchMedia();
 
-                // Target specifically the inner rounded container (the actual visual card)
-                const innerCard = card.querySelector('.bg-black');
+            mm.add("(min-width: 768px)", () => {
+                // Loop through all cards except the last one
+                cardsRef.current.forEach((card, i) => {
+                    if (i === cardsRef.current.length - 1) return; // Don't animate the last card out
 
+                    // Target specifically the inner rounded container (the actual visual card)
+                    const innerCard = card.querySelector('.bg-black');
+
+                    ScrollTrigger.create({
+                        trigger: card,
+                        start: "top top", // When this card hits the top
+                        endTrigger: cardsRef.current[i + 1], // Until the next card
+                        end: "top top", // hits the top
+                        pin: true,
+                        pinSpacing: false, // Don't add spacing, let them stack
+                        id: `card-${i}`
+                    });
+
+                    // The animation for shrinking the card as the NEXT card comes up
+                    gsap.to(innerCard, {
+                        scale: 0.9,
+                        filter: 'blur(20px)',
+                        opacity: 0.5,
+                        ease: 'none',
+                        scrollTrigger: {
+                            trigger: cardsRef.current[i + 1],
+                            start: "top bottom", // As soon as the next card enters the bottom of viewport
+                            end: "top top", // Until the next card reaches the top
+                            scrub: true,
+                        }
+                    });
+                });
+
+                // Pin the last card too so it stays while we scroll past
                 ScrollTrigger.create({
-                    trigger: card,
-                    start: "top top", // When this card hits the top
-                    endTrigger: cardsRef.current[i + 1], // Until the next card
-                    end: "top top", // hits the top
+                    trigger: cardsRef.current[cardsRef.current.length - 1],
+                    start: "top top",
+                    end: "+=100%", // Hold for a bit
                     pin: true,
-                    pinSpacing: false, // Don't add spacing, let them stack
-                    id: `card-${i}`
+                    pinSpacing: true
                 });
-
-                // The animation for shrinking the card as the NEXT card comes up
-                gsap.to(innerCard, {
-                    scale: 0.9,
-                    filter: 'blur(20px)',
-                    opacity: 0.5,
-                    ease: 'none',
-                    scrollTrigger: {
-                        trigger: cardsRef.current[i + 1],
-                        start: "top bottom", // As soon as the next card enters the bottom of viewport
-                        end: "top top", // Until the next card reaches the top
-                        scrub: true,
-                    }
-                });
-            });
-
-            // Pin the last card too so it stays while we scroll past
-            ScrollTrigger.create({
-                trigger: cardsRef.current[cardsRef.current.length - 1],
-                start: "top top",
-                end: "+=100%", // Hold for a bit
-                pin: true,
-                pinSpacing: true
             });
 
         }, containerRef);
