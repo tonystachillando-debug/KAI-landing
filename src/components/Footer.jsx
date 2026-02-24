@@ -9,7 +9,7 @@ const Footer = () => {
                         <img src="https://amazix.com/assets/images/logo/amazix-logo.webp" alt="AmaZix Logo" className="h-10 opacity-90 hover:opacity-100 transition-opacity" />
                     </a>
                     <h2 className="mb-6 flex items-center gap-4">
-                        <img src="/LOGOKAISVG.svg" alt="KAI Logo" className="h-16" />
+                        <img src="/KAI.png" alt="KAI Logo" className="h-16" />
                         <span className="text-[10px] font-mono tracking-widest text-orange border border-orange/30 px-2 py-0.5 rounded-full">AMAZIX</span>
                     </h2>
                     <p className="text-white/50 text-sm font-sans leading-relaxed">
