@@ -117,15 +117,15 @@ const Membership = () => {
             {/* Conversion Form */}
             <div id="demo" className="w-full max-w-4xl bg-teal/10 border border-teal/20 backdrop-blur-md text-white rounded-3xl p-12 md:p-16 shadow-[0_30px_60px_rgba(0,161,159,0.2)] flex flex-col md:flex-row gap-12 items-center">
                 <div className="flex-1">
-                    <h2 className="text-4xl md:text-5xl font-sans font-bold tracking-tighter leading-[0.9] mb-4">
-                        Don't get <br /><span className="text-orange font-normal text-5xl md:text-6xl">left behind.</span>
+                    <h2 className="text-3xl md:text-4xl font-sans font-bold tracking-tighter leading-[1.1] mb-4">
+                        Stop pitching bots. <br /><span className="text-orange font-normal text-4xl md:text-5xl">Start your Pilot.</span>
                     </h2>
-                    <p className="text-white/70 text-sm font-sans mb-8">
-                        Book a free 60-minute strategic consultation with Mitchell Mahaffey.
+                    <p className="text-white/70 text-sm font-sans mb-8 leading-relaxed">
+                        Replace the 5-day sandbox with a 14-Day Live Pilot in your real environment. See the Governance Impact Summary before you commit.
                     </p>
                     <div className="flex items-center gap-3 text-xs font-mono uppercase tracking-widest text-orange/80">
                         <span className="w-2 h-2 rounded-full bg-orange animate-pulse"></span>
-                        Only 4 slots remaining
+                        Pilot Capacity Limited
                     </div>
                 </div>
 

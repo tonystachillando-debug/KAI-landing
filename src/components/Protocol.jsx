@@ -7,14 +7,14 @@ gsap.registerPlugin(ScrollTrigger);
 const protocols = [
     {
         id: 1,
-        title: 'KAI: The Voice That Scales',
-        desc: 'Silence leaves room for FUD. KAI provides instant, brand-safe reassurance 24/7, turning moments of doubt into lasting ecosystem loyalty.',
+        title: 'KAI: Contextual Engagement Layer',
+        desc: 'A system built for adversarial chat. KAI prevents meaning collapse and interprets ambiguity, de-escalating crises without censoring your community.',
         type: 'voice'
     },
     {
         id: 2,
-        title: 'HAIMDALL: The Unseen Guardian',
-        desc: 'A single phishing link can destroy a project. HAIMDALL proactively neutralizes scams, bots, and impersonators before your community even sees them.',
+        title: 'HAIMDALL: Deterministic Enforcement',
+        desc: 'Authority requires limits. HAIMDALL provides auditable restraint, neutralizing structural threats—spam, phishing, and coordinated raids—invisibly.',
         type: 'radar'
     },
     {

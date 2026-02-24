@@ -1,9 +1,10 @@
+
 import React, { useState, useEffect } from 'react';
 import { Activity, Brain, Dna } from 'lucide-react';
 
 const DiagnosticShuffler = () => {
     const [cards, setCards] = useState([
-        { id: 1, label: 'Machiavellian Founder', value: '98% Match', icon: <Brain className="text-white w-6 h-6" />, status: 'Dominant' },
+        { id: 1, label: 'Busy Founder', value: '98% Match', icon: <Brain className="text-white w-6 h-6" />, status: 'Dominant' },
         { id: 2, label: 'Technical Guide', value: 'Sub 10-ms', icon: <Activity className="text-white w-6 h-6" />, status: 'Calibrated' },
         { id: 3, label: 'Degen Trader', value: 'High Alpha', icon: <Dna className="text-white w-6 h-6" />, status: 'Engaged' },
     ]);
