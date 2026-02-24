@@ -75,18 +75,18 @@ const Hero = () => {
                 <div className="w-full md:w-[55%] lg:w-[60%] flex flex-col justify-center h-full relative z-20 mt-16 md:mt-0">
                     <div className="overflow-hidden mb-[-0.5rem]">
                         <h1 ref={addToRefs} className="text-white text-5xl md:text-6xl lg:text-[5.5rem] font-sans font-bold tracking-tighter leading-[1] pb-2">
-                            When crises hit,
+                            Survive the Listing.
                         </h1>
                     </div>
                     <div className="overflow-hidden">
                         <h1 ref={addToRefs} className="text-orange text-5xl md:text-6xl lg:text-[5.5rem] font-sans font-bold tracking-tighter leading-[1] pr-8 pb-4">
-                            communities collapse.
+                            Scale the Trust.
                         </h1>
                     </div>
 
                     <div className="overflow-hidden mt-6 max-w-2xl">
                         <p ref={addToRefs} className="text-gray text-base md:text-xl font-sans leading-relaxed text-white/70">
-                            Most projects don’t die from the exploit—they die from the trust collapse after.<br />
+                            Most projects don’t die from the exploit, they die from the trust collapse.<br />
                             <span className="text-white font-medium">KAI stabilizes the story, while HAIMDALL stops the wolves. A unified Governance Guard for TGEs and growing networks.</span>
                         </p>
                     </div>
