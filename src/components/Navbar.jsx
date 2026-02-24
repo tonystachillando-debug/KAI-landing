@@ -36,8 +36,8 @@ const Navbar = () => {
                     <span className="text-[10px] font-mono tracking-widest text-orange border border-orange/30 px-2 py-0.5 rounded-full">AMAZIX</span>
                 </div>
                 <div className="hidden md:flex items-center gap-8 font-sans text-sm tracking-wide">
-                    <a href="#features" className="hover:text-teal transition-colors">Features</a>
                     <a href="#integrations" className="hover:text-teal transition-colors">Integrations</a>
+                    <a href="#features" className="hover:text-teal transition-colors">Features</a>
                     <a href="#protocol" className="hover:text-teal transition-colors">Protocol</a>
                     <a href="#scale" className="hover:text-teal transition-colors">Pricing</a>
                 </div>
