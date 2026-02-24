@@ -32,7 +32,7 @@ const Navbar = () => {
                     }`}
             >
                 <div className="flex items-center gap-3">
-                    <img src="/KAI.png" alt="KAI Logo" className="h-12" />
+                    <img src="/LOGOKAISVG.svg" alt="KAI Logo" className="h-12" />
                     <span className="text-[10px] font-mono tracking-widest text-orange border border-orange/30 px-2 py-0.5 rounded-full">AMAZIX</span>
                 </div>
                 <div className="hidden md:flex items-center gap-8 font-sans text-sm tracking-wide">
