@@ -160,8 +160,8 @@ const CinematicDashboard = () => {
                                             <span className="font-mono text-xs text-white/50 uppercase">Engagement Boost</span>
                                         </div>
                                         <div className="flex items-baseline gap-2">
-                                            <span ref={el => statsRef.current[0] = el} className="text-5xl md:text-7xl font-bold font-sans text-white">0</span>
-                                            <span className="text-orange font-mono text-xl">+28%</span>
+                                            <span ref={el => statsRef.current[0] = el} className="text-3xl md:text-7xl font-bold font-sans text-white">0</span>
+                                            <span className="text-orange font-mono text-lg md:text-xl">+28%</span>
                                         </div>
                                     </div>
                                     <div>
@@ -170,8 +170,8 @@ const CinematicDashboard = () => {
                                             <span className="font-mono text-xs text-white/50 uppercase">Community Health</span>
                                         </div>
                                         <div className="flex items-baseline gap-2">
-                                            <span ref={el => statsRef.current[1] = el} className="text-5xl md:text-7xl font-bold font-sans text-white">0</span>
-                                            <span className="text-teal font-mono text-xl">%</span>
+                                            <span ref={el => statsRef.current[1] = el} className="text-3xl md:text-7xl font-bold font-sans text-white">0</span>
+                                            <span className="text-teal font-mono text-lg md:text-xl">%</span>
                                         </div>
                                     </div>
                                 </div>

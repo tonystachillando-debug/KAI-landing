@@ -43,9 +43,9 @@ const Navbar = () => {
                 </div>
                 <a
                     href="#scale"
-                    className="px-6 py-2.5 rounded-2xl text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 bg-orange text-white"
+                    className="px-4 py-2 md:px-6 md:py-2.5 rounded-2xl text-[10px] sm:text-xs md:text-sm font-semibold transition-all duration-300 hover:scale-105 active:scale-95 bg-orange text-white whitespace-nowrap"
                 >
-                    Initialize KAI
+                    Start KAI
                 </a>
             </nav>
         </div>
