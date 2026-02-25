@@ -128,6 +128,7 @@ const Philosophy = () => {
                                     loop
                                     muted
                                     playsInline
+                                    preload="metadata"
                                     onError={(e) => e.target.style.display = 'none'}
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40 xl:opacity-100 xl:bg-transparent">
@@ -152,6 +153,7 @@ const Philosophy = () => {
                                     loop
                                     muted
                                     playsInline
+                                    preload="metadata"
                                     onError={(e) => e.target.style.display = 'none'}
                                 />
                                 <div className="absolute inset-0 flex items-center justify-center opacity-0 transition-opacity duration-300 group-hover:opacity-100 bg-black/40 xl:opacity-100 xl:bg-transparent">
