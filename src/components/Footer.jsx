@@ -27,6 +27,7 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col gap-4 text-sm font-sans">
                         <h4 className="font-semibold text-white/50 mb-2 uppercase tracking-widest text-[10px] font-mono">Connect</h4>
+                        <a href="https://calendar.app.google/QSJp7B8jtLeftjbv8" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors">Book a Call</a>
                         <a href="#" className="hover:text-orange transition-colors">Twitter / X</a>
                         <a href="#" className="hover:text-orange transition-colors">Telegram Support</a>
                         <a href="#" className="hover:text-orange transition-colors">AmaZix Website</a>

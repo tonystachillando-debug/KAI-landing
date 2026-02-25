@@ -89,7 +89,7 @@ const Membership = () => {
                             <li className="flex items-start gap-2"><span className="text-orange mt-0.5">✓</span> <span>Incident response SOP & monthly review</span></li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=institutional&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto">Contact Sales</Link>
+                    <a href="https://calendar.app.google/QSJp7B8jtLeftjbv8" target="_blank" rel="noopener noreferrer" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto">Contact Sales</a>
                 </div>
             </div>
 

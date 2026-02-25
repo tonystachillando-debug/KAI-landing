@@ -40,6 +40,7 @@ const Navbar = () => {
                     <a href="#features" className="hover:text-teal transition-colors">Features</a>
                     <a href="#protocol" className="hover:text-teal transition-colors">Protocol</a>
                     <a href="#scale" className="hover:text-teal transition-colors">Pricing</a>
+                    <a href="https://calendar.app.google/QSJp7B8jtLeftjbv8" target="_blank" rel="noopener noreferrer" className="hover:text-teal transition-colors">Book a Call</a>
                 </div>
                 <a
                     href="#scale"
