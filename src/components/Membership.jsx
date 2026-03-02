@@ -20,9 +20,9 @@ const Membership = () => {
             return;
         }
 
-        const urlPattern = /^(https?:\/\/)?(www\.)?(linkedin\.com|x\.com|twitter\.com)\/.+$/i;
+        const urlPattern = /^(https?:\/\/)[^\s]+$/i;
         if (!urlPattern.test(socialProfile)) {
-            setError('Please provide a valid LinkedIn or X (Twitter) profile URL.');
+            setError('Please provide a valid URL (must start with http:// or https://).');
             return;
         }
 
@@ -196,17 +196,14 @@ const Membership = () => {
                         className="flex flex-col gap-4 w-full"
                         onSubmit={handleSubmit}
                     >
-                        <div className="flex flex-col gap-1">
-                            <input
-                                type="email"
-                                placeholder="WORK EMAIL ADDRESS"
-                                className={`w-full bg-charcoal/40 border ${error ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
-                                required
-                                value={email}
-                                onChange={(e) => setEmail(e.target.value)}
-                            />
-                            {error && <p className="text-red-400 text-xs px-2 font-sans tracking-tight">{error}</p>}
-                        </div>
+                        <input
+                            type="email"
+                            placeholder="WORK EMAIL ADDRESS"
+                            className={`w-full bg-charcoal/40 border ${error && error.includes('email') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
+                            required
+                            value={email}
+                            onChange={(e) => setEmail(e.target.value)}
+                        />
 
                         <div className="flex flex-col md:flex-row gap-4 w-full">
                             <input
@@ -245,6 +242,8 @@ const Membership = () => {
                                 <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
                             </div>
                         </div>
+
+                        {error && <div className="text-red-400 text-sm font-sans tracking-tight px-2 py-1 bg-red-500/10 border border-red-500/20 rounded-lg">{error}</div>}
 
                         <button
                             type="submit"
