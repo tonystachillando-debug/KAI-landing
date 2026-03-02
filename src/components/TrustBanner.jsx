@@ -2,8 +2,8 @@ import React from 'react';
 
 const TrustBanner = () => {
     const logos = [
-        { name: "BANCOR", src: "/BANCOR.png", alt: "Bancor Logo" },
-        { name: "TRUSTSWAP", src: "/TRUSTSWAP.png", alt: "TrustSwap Logo" },
+        { name: "BANCOR", src: "/BANCOR.svg", alt: "Bancor Logo" },
+        { name: "TRUSTSWAP", src: "/TRUSTSWAP.svg", alt: "TrustSwap Logo" },
         { name: "OLAS", src: "/OLAS.svg", alt: "Olas Logo" },
         { name: "Trac Network", src: "/TracLogo.svg", alt: "Trac Network Logo" }
     ];
