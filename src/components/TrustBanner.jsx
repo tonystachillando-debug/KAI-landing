@@ -2,7 +2,10 @@ import React from 'react';
 
 const TrustBanner = () => {
     const logos = [
-        "TRUSTSWAP", "CASPER LABS", "ECOMI", "BANCOR", "AVA STARTUP"
+        { name: "BANCOR", src: "/BANCOR.png", alt: "Bancor Logo" },
+        { name: "TRUSTSWAP", src: "/TRUSTSWAP.png", alt: "TrustSwap Logo" },
+        { name: "OLAS", src: "/OLAS.svg", alt: "Olas Logo" },
+        { name: "Trac Network", src: "/TracLogo.svg", alt: "Trac Network Logo" }
     ];
 
     return (
@@ -17,16 +20,22 @@ const TrustBanner = () => {
                 {/* We double the content to allow infinite CSS scrolling */}
                 <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap min-w-full justify-around items-center">
                     {logos.map((logo, i) => (
-                        <h3 key={i} className="text-white/30 text-2xl md:text-3xl font-sans font-bold tracking-tighter mx-8 md:mx-16 flex-shrink-0">
-                            [ {logo} ]
-                        </h3>
+                        <img
+                            key={i}
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="h-8 md:h-10 mx-8 md:mx-16 flex-shrink-0 object-contain brightness-0 invert opacity-40 hover:opacity-100 transition-opacity"
+                        />
                     ))}
                 </div>
                 <div className="flex animate-[marquee_20s_linear_infinite] whitespace-nowrap min-w-full justify-around items-center absolute top-0 left-full">
                     {logos.map((logo, i) => (
-                        <h3 key={`dup-${i}`} className="text-white/30 text-2xl md:text-3xl font-sans font-bold tracking-tighter mx-8 md:mx-16 flex-shrink-0">
-                            [ {logo} ]
-                        </h3>
+                        <img
+                            key={`dup-${i}`}
+                            src={logo.src}
+                            alt={logo.alt}
+                            className="h-8 md:h-10 mx-8 md:mx-16 flex-shrink-0 object-contain brightness-0 invert opacity-40 hover:opacity-100 transition-opacity"
+                        />
                     ))}
                 </div>
             </div>
