@@ -182,23 +182,25 @@ const Membership = () => {
                             {error && <p className="text-red-400 text-xs px-2 font-sans tracking-tight">{error}</p>}
                         </div>
 
-                        <input
-                            type="text"
-                            placeholder="COMPANY OR PROTOCOL NAME"
-                            className="w-full bg-charcoal/40 border border-white/10 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors"
-                            required
-                            value={company}
-                            onChange={(e) => setCompany(e.target.value)}
-                        />
+                        <div className="flex flex-col md:flex-row gap-4 w-full">
+                            <input
+                                type="text"
+                                placeholder="COMPANY OR PROTOCOL NAME"
+                                className="w-full bg-charcoal/40 border border-white/10 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors"
+                                required
+                                value={company}
+                                onChange={(e) => setCompany(e.target.value)}
+                            />
 
-                        <input
-                            type="url"
-                            placeholder="LINKEDIN OR X PROFILE URL"
-                            className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
-                            required
-                            value={socialProfile}
-                            onChange={(e) => setSocialProfile(e.target.value)}
-                        />
+                            <input
+                                type="url"
+                                placeholder="LINKEDIN OR X PROFILE URL"
+                                className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
+                                required
+                                value={socialProfile}
+                                onChange={(e) => setSocialProfile(e.target.value)}
+                            />
+                        </div>
 
                         <div className="relative">
                             <select
