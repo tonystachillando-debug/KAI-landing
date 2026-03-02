@@ -83,7 +83,7 @@ const Membership = () => {
             {/* Subscription Pricing Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16 max-w-6xl mx-auto">
                 {/* STARTER TIER (Most Popular) */}
-                <div className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)] transform lg:-translate-y-4">
+                <div className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)]">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teal text-black text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Most Popular</div>
                     <div>
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Starter</h3>
