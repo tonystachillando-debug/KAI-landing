@@ -8,9 +8,10 @@ const Membership = () => {
     const [socialProfile, setSocialProfile] = useState('');
     const [messages, setMessages] = useState('');
     const [error, setError] = useState('');
+    const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
 
-    const handleSubmit = (e) => {
+    const handleSubmit = async (e) => {
         e.preventDefault();
         setError('');
 
@@ -25,8 +26,33 @@ const Membership = () => {
             return;
         }
 
-        // Redirect to thank you page
-        navigate('/thank-you');
+        setIsSubmitting(true);
+
+        try {
+            await fetch('https://formsubmit.co/ajax/antonio.visceglia@amazix.com', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                    'Accept': 'application/json'
+                },
+                body: JSON.stringify({
+                    _cc: 'mitchell.mahaffey@amazix.com',
+                    _subject: 'New KAI Pilot Request!',
+                    email: email,
+                    company: company,
+                    socialProfile: socialProfile,
+                    messages: messages,
+                    _template: 'box'
+                })
+            });
+
+            // Redirect to thank you page after successful submission
+            navigate('/thank-you');
+        } catch (err) {
+            console.error('Submission failed', err);
+            setError('There was an error submitting your request. Please try again.');
+            setIsSubmitting(false);
+        }
     };
 
     return (
@@ -222,9 +248,10 @@ const Membership = () => {
 
                         <button
                             type="submit"
-                            className="w-full bg-orange text-white rounded-xl px-6 py-4 mt-2 text-sm font-sans font-bold uppercase tracking-wider transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_15px_rgba(247,147,26,0.15)] hover:shadow-[0_0_25px_rgba(247,147,26,0.3)]"
+                            disabled={isSubmitting}
+                            className={`w-full ${isSubmitting ? 'bg-orange/50 cursor-not-allowed' : 'bg-orange hover:scale-[1.02] active:scale-[0.98] hover:shadow-[0_0_25px_rgba(247,147,26,0.3)]'} text-white rounded-xl px-6 py-4 mt-2 text-sm font-sans font-bold uppercase tracking-wider transition-all shadow-[0_0_15px_rgba(247,147,26,0.15)]`}
                         >
-                            stop your search, start your pilot
+                            {isSubmitting ? 'INITIALIZING...' : 'STOP YOUR SEARCH, START YOUR PILOT'}
                         </button>
                     </form>
                 </div>
