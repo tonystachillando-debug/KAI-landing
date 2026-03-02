@@ -1,8 +1,33 @@
 import React, { useState } from 'react';
-import { Link } from 'react-router-dom';
+import { Link, useNavigate } from 'react-router-dom';
 
 const Membership = () => {
     const [isYearly, setIsYearly] = useState(true);
+    const [email, setEmail] = useState('');
+    const [company, setCompany] = useState('');
+    const [socialProfile, setSocialProfile] = useState('');
+    const [messages, setMessages] = useState('');
+    const [error, setError] = useState('');
+    const navigate = useNavigate();
+
+    const handleSubmit = (e) => {
+        e.preventDefault();
+        setError('');
+
+        if (email.toLowerCase().endsWith('@gmail.com')) {
+            setError('Please use a legitimate work email. Gmail addresses are not accepted for pilots.');
+            return;
+        }
+
+        const urlPattern = /^(https?:\/\/)?(www\.)?(linkedin\.com|x\.com|twitter\.com)\/.+$/i;
+        if (!urlPattern.test(socialProfile)) {
+            setError('Please provide a valid LinkedIn or X (Twitter) profile URL.');
+            return;
+        }
+
+        // Redirect to thank you page
+        navigate('/thank-you');
+    };
 
     return (
         <section id="scale" className="py-32 px-4 md:px-8 bg-black w-full max-w-[90rem] mx-auto text-white flex flex-col items-center">
@@ -143,17 +168,59 @@ const Membership = () => {
                 <div className="flex-1 w-full relative">
                     <form
                         className="flex flex-col gap-4 w-full"
-                        onSubmit={(e) => { e.preventDefault(); alert("Initialization sequence started."); }}
+                        onSubmit={handleSubmit}
                     >
+                        <div className="flex flex-col gap-1">
+                            <input
+                                type="email"
+                                placeholder="WORK EMAIL ADDRESS"
+                                className={`w-full bg-charcoal/40 border ${error ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
+                                required
+                                value={email}
+                                onChange={(e) => setEmail(e.target.value)}
+                            />
+                            {error && <p className="text-red-400 text-xs px-2 font-sans tracking-tight">{error}</p>}
+                        </div>
+
                         <input
-                            type="email"
-                            placeholder="ENTER WORK EMAIL"
-                            className="w-full bg-charcoal/5 border border-white/10 rounded-full px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors"
+                            type="text"
+                            placeholder="COMPANY OR PROTOCOL NAME"
+                            className="w-full bg-charcoal/40 border border-white/10 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors"
                             required
+                            value={company}
+                            onChange={(e) => setCompany(e.target.value)}
                         />
+
+                        <input
+                            type="url"
+                            placeholder="LINKEDIN OR X PROFILE URL"
+                            className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
+                            required
+                            value={socialProfile}
+                            onChange={(e) => setSocialProfile(e.target.value)}
+                        />
+
+                        <div className="relative">
+                            <select
+                                className="w-full bg-teal/10 border border-teal/20 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors appearance-none cursor-pointer"
+                                required
+                                value={messages}
+                                onChange={(e) => setMessages(e.target.value)}
+                            >
+                                <option value="" disabled className="bg-charcoal text-white/50">HOW MANY MESSAGES YOUR COMMUNITY RECEIVES DAILY?</option>
+                                <option value="0-1k" className="bg-charcoal">Under 1,000</option>
+                                <option value="1k-10k" className="bg-charcoal">1,000 - 10,000</option>
+                                <option value="10k-50k" className="bg-charcoal">10,000 - 50,000</option>
+                                <option value="50k+" className="bg-charcoal">50,000+</option>
+                            </select>
+                            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/50">
+                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                            </div>
+                        </div>
+
                         <button
                             type="submit"
-                            className="w-full bg-orange text-white rounded-full px-6 py-4 text-sm font-sans font-bold uppercase tracking-wider transition-transform hover:scale-105 active:scale-95"
+                            className="w-full bg-orange text-white rounded-xl px-6 py-4 mt-2 text-sm font-sans font-bold uppercase tracking-wider transition-transform hover:scale-[1.02] active:scale-[0.98] shadow-[0_0_15px_rgba(247,147,26,0.15)] hover:shadow-[0_0_25px_rgba(247,147,26,0.3)]"
                         >
                             stop your search, start your pilot
                         </button>

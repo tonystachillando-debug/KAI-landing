@@ -2,6 +2,7 @@ import React from 'react';
 import { Routes, Route } from 'react-router-dom';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
+import ThankYou from './components/ThankYou';
 import TrustBanner from './components/TrustBanner';
 import CinematicDashboard from './components/CinematicDashboard';
 import Features from './components/Features';
@@ -32,6 +33,7 @@ function App() {
     <Routes>
       <Route path="/" element={<LandingPage />} />
       <Route path="/checkout" element={<Checkout />} />
+      <Route path="/thank-you" element={<ThankYou />} />
     </Routes>
   );
 }
