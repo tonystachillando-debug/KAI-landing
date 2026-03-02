@@ -31,7 +31,6 @@ const Footer = () => {
                         <a href="#" className="hover:text-orange transition-colors">Twitter / X</a>
                         <a href="#" className="hover:text-orange transition-colors">Telegram Support</a>
                         <a href="#" className="hover:text-orange transition-colors">AmaZix Website</a>
-                        <a href="#" className="hover:text-orange transition-colors">GitBook Docs</a>
                     </div>
                 </div>
             </div>

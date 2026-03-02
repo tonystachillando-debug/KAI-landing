@@ -47,12 +47,6 @@ const Integrations = () => {
                                 </span>
                                 <span className="text-xs bg-white/5 px-2 py-1 rounded text-white/50 border border-white/10">Active</span>
                             </li>
-                            <li className="flex items-center justify-between">
-                                <span className="text-white/80 font-sans font-medium flex items-center gap-3">
-                                    <div className="w-2 h-2 rounded-full bg-teal" /> X (Twitter)
-                                </span>
-                                <span className="text-xs bg-orange/10 text-orange px-2 py-1 rounded border border-orange/20">Answers Only</span>
-                            </li>
                         </ul>
                     </div>
                 </div>
