@@ -43,9 +43,9 @@ const TelemetryTypewriter = () => {
     }, [displayedText, isDeleting, currentMessageIndex]);
 
     return (
-        <div className="relative w-full h-80 flex flex-col bg-black rounded-2xl p-8 overflow-hidden font-mono shadow-inner border border-white/5">
+        <article className="relative w-full h-80 flex flex-col bg-black rounded-2xl p-8 overflow-hidden font-mono shadow-inner border border-white/5" aria-label="Knowledge Base Telemetry Feature">
             <div className="flex justify-between items-center mb-12">
-                <div className="text-xs text-white/40 uppercase tracking-widest">Z-Knowledge Base</div>
+                <h3 className="text-xs text-white/40 uppercase tracking-widest">Z-Knowledge Base</h3>
                 <div className="flex items-center gap-2">
                     <div className="w-2 h-2 rounded-full bg-orange animate-pulse"></div>
                     <span className="text-[10px] text-orange uppercase tracking-widest">Training.Live</span>
@@ -65,7 +65,7 @@ const TelemetryTypewriter = () => {
                     <span className="inline-block w-2.5 h-5 bg-orange ml-1 animate-[blink_1s_step-end_infinite]"></span>
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 

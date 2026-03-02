@@ -23,11 +23,11 @@ const DiagnosticShuffler = () => {
     }, []);
 
     return (
-        <div className="relative w-full h-80 flex flex-col items-center justify-center bg-black rounded-2xl p-6 overflow-hidden border border-white/10">
-            <div className="absolute top-6 left-6 text-xs font-mono text-white/50 uppercase tracking-widest">
+        <article className="relative w-full h-80 flex flex-col items-center justify-center bg-black rounded-2xl p-6 overflow-hidden border border-white/10" aria-label="Diagnostic Tone and Protocol Feature">
+            <h3 className="absolute top-6 left-6 text-xs font-mono text-white/50 uppercase tracking-widest">
                 Tone & Protocol
-            </div>
-            <div className="relative w-full max-w-sm h-48 mt-8 perspective-[1000px]">
+            </h3>
+            <div className="relative w-full max-w-sm h-48 mt-8 perspective-[1000px]" aria-hidden="true">
                 {cards.map((card, index) => {
                     // index 0 is top card, 1 is middle, 2 is bottom
                     const zIndex = 3 - index;
@@ -60,7 +60,7 @@ const DiagnosticShuffler = () => {
                     );
                 })}
             </div>
-        </div>
+        </article>
     );
 };
 

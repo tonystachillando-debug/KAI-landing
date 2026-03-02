@@ -7,7 +7,7 @@ import { Layers } from 'lucide-react'; // Assuming Layers icon is from lucide-re
 
 const Features = () => {
     return (
-        <section id="features" className="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto">
+        <section id="features" className="py-24 md:py-32 px-4 md:px-8 max-w-7xl mx-auto" aria-label="Key Features of KAI Intelligence">
             <div className="mb-16 md:mb-24 flex flex-col md:flex-row justify-between items-start md:items-end gap-8 w-full text-left">
                 <h2 className="text-4xl md:text-6xl font-sans font-semibold tracking-tighter text-white leading-[0.9]">
                     Deterministic <br />

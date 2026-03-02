@@ -61,8 +61,8 @@ const AdaptiveRegimen = () => {
     };
 
     return (
-        <div ref={containerRef} className="relative w-full h-80 bg-black rounded-2xl p-8 overflow-hidden border border-white/10 flex flex-col justify-between">
-            <div className="text-xs font-mono text-white/50 uppercase tracking-widest">Scheduling Engagement</div>
+        <article ref={containerRef} className="relative w-full h-80 bg-black rounded-2xl p-8 overflow-hidden border border-white/10 flex flex-col justify-between" aria-label="Adaptive Scheduling Regimen Feature">
+            <h3 className="text-xs font-mono text-white/50 uppercase tracking-widest">Scheduling Engagement</h3>
 
             <div className="relative mt-8">
                 <div className="text-sm font-sans font-medium text-white/70 mb-4">Plan Narrative Rhythm</div>
@@ -79,7 +79,7 @@ const AdaptiveRegimen = () => {
                 </div>
 
                 <div className="mt-6 flex justify-end">
-                    <button className="save-btn px-6 py-2 rounded-full border border-white/20 text-xs font-semibold font-sans uppercase tracking-wider text-white flex items-center gap-2">
+                    <button className="save-btn px-6 py-2 rounded-full border border-white/20 text-xs font-semibold font-sans uppercase tracking-wider text-white flex items-center gap-2" aria-label="Schedule Engagement Burst">
                         Schedule Burst
                     </button>
                 </div>
@@ -87,6 +87,7 @@ const AdaptiveRegimen = () => {
                 {/* Mock Cursor */}
                 <div
                     ref={cursorRef}
+                    aria-hidden="true"
                     className="absolute left-0 top-1/2 w-6 h-6 pointer-events-none z-10"
                     style={{
                         backgroundImage: `url("data:image/svg+xml,%3Csvg width='24' height='24' viewBox='0 0 24 24' fill='none' xmlns='http://www.w3.org/2000/svg'%3E%3Cpath d='M5.5 3.21V20.8C5.5 21.46 6.3 21.79 6.77 21.32L10.82 17.27C11.01 17.08 11.26 16.98 11.53 16.98H19.09C19.75 16.98 20.08 16.18 19.61 15.71L6.91 3.01C6.52 2.62 5.5 2.76 5.5 3.21Z' fill='%231A1A1A' stroke='white' stroke-width='1.5' stroke-linejoin='round'/%3E%3C/svg%3E")`,
@@ -96,7 +97,7 @@ const AdaptiveRegimen = () => {
                     }}
                 />
             </div>
-        </div>
+        </article>
     );
 };
 

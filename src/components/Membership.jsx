@@ -56,92 +56,94 @@ const Membership = () => {
     };
 
     return (
-        <section id="scale" className="py-32 px-4 md:px-8 bg-black w-full max-w-[90rem] mx-auto text-white flex flex-col items-center">
+        <section id="scale" className="py-32 px-4 md:px-8 bg-black w-full max-w-[90rem] mx-auto text-white flex flex-col items-center" aria-label="KAI Pricing and Pilot Form">
 
             {/* Ecosystem Scale Header */}
-            <div className="text-center mb-12 max-w-2xl">
+            <header className="text-center mb-12 max-w-2xl">
                 <h2 className="text-4xl md:text-6xl font-sans font-semibold tracking-tighter text-white leading-[0.9] mb-6">
                     Simple, Transparent <span className="text-orange font-normal text-5xl md:text-7xl">Pricing.</span>
                 </h2>
                 <p className="text-white/70 font-sans md:text-lg mb-8">
-                    Deploy KAI universally across Telegram, Discord, and X. Choose the scale that fits your community.
+                    Deploy KAI universally across Telegram, Discord, and Web3 social layers. Choose the scale that fits your community management needs.
                 </p>
 
                 {/* Billing Toggle */}
                 <div className="flex items-center justify-center gap-4 text-sm font-sans font-medium text-white/80">
-                    <span className={!isYearly ? "text-white" : "text-white/40"}>Monthly</span>
+                    <span className={!isYearly ? "text-white" : "text-white/40"} aria-hidden="true">Monthly</span>
                     <button
                         onClick={() => setIsYearly(!isYearly)}
+                        aria-pressed={isYearly}
+                        aria-label="Toggle Yearly Billing"
                         className="relative w-14 h-7 bg-charcoal rounded-full border border-white/20 transition-colors focus:outline-none"
                     >
                         <div className={`absolute top-[2px] left-[2px] w-5 h-5 rounded-full transition-transform duration-300 ${isYearly ? "translate-x-7 bg-orange shadow-[0_0_10px_rgba(247,147,26,0.6)]" : "translate-x-0 bg-white shadow-[0_0_10px_rgba(255,255,255,0.4)]"}`} />
                     </button>
-                    <span className={isYearly ? "text-orange" : "text-white/40"}>Yearly (Save 20%)</span>
+                    <span className={isYearly ? "text-orange" : "text-white/40"} aria-hidden="true">Yearly (Save 20%)</span>
                 </div>
-            </div>
+            </header>
 
             {/* Subscription Pricing Cards */}
             <div className="grid grid-cols-1 md:grid-cols-3 gap-6 w-full mb-16 max-w-6xl mx-auto">
                 {/* STARTER TIER (Most Popular) */}
-                <div className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)]">
+                <article className="bg-teal/10 rounded-2xl p-8 border border-teal/40 flex flex-col justify-between relative shadow-[0_20px_40px_rgba(0,161,159,0.15)]" aria-label="Starter Pricing Plan">
                     <div className="absolute top-0 left-1/2 -translate-x-1/2 -translate-y-1/2 bg-teal text-black text-xs font-bold uppercase tracking-widest px-4 py-1 rounded-full">Most Popular</div>
                     <div>
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-teal">Starter</h3>
-                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">Small communities, creators testing safety baseline</p>
+                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">Small Web3 communities, creators testing safety baseline</p>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
                                 {isYearly ? '$79' : '$99'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
                             {isYearly && <span className="text-xs text-teal mt-1">Billed $948 yearly</span>}
                         </div>
-                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Minimal HAIMDALL rules & anti-flood</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Basic impersonation & spam deletion</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Capped KAI engagement</span></li>
+                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans" aria-label="Starter Plan Features">
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Minimal HAIMDALL rules & anti-flood</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Basic impersonation & spam deletion</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Capped KAI engagement</span></li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=starter&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto">Initialize Starter</Link>
-                </div>
+                    <Link to={`/checkout?tier=starter&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto" aria-label="Initialize Starter Plan">Initialize Starter</Link>
+                </article>
 
                 {/* GROWTH GUARD TIER */}
-                <div className="bg-charcoal rounded-2xl p-8 border border-white/5 hover:border-teal/20 transition-colors flex flex-col justify-between">
+                <article className="bg-charcoal rounded-2xl p-8 border border-white/5 hover:border-teal/20 transition-colors flex flex-col justify-between" aria-label="Growth Guard Pricing Plan">
                     <div>
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-white hover:text-teal transition-colors">Growth Guard</h3>
-                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">10k–100k communities needing real protection</p>
+                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">10k–100k communities needing real bot protection</p>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
                                 {isYearly ? '$799' : '$999'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
                             {isYearly && <span className="text-xs text-white/50 mt-1">Billed $9,588 yearly</span>}
                         </div>
-                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>KAI + HAIMDALL (TG/Discord/Twitch)</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Governance dashboard & reporting</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Defined escalation windows</span></li>
+                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans" aria-label="Growth Guard Plan Features">
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>KAI + HAIMDALL (TG/Discord/Twitch)</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Governance dashboard & reporting</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Defined escalation windows</span></li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=growth&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto">Deploy Growth Guard</Link>
-                </div>
+                    <Link to={`/checkout?tier=growth&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto" aria-label="Deploy Growth Guard Plan">Deploy Growth Guard</Link>
+                </article>
 
                 {/* INSTITUTIONAL TIER */}
-                <div className="bg-charcoal rounded-2xl p-8 border border-orange/20 flex flex-col justify-between">
+                <article className="bg-charcoal rounded-2xl p-8 border border-orange/20 flex flex-col justify-between" aria-label="Institutional Pricing Plan">
                     <div>
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-orange">Institutional</h3>
-                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">Exchanges, protocols, high-stakes ecosystems</p>
+                        <p className="text-xs text-white/50 font-sans mb-4 h-8 leading-snug">Exchanges, protocols, high-stakes Web3 ecosystems</p>
                         <div className="mb-6 flex flex-col h-16 justify-center">
                             <div className="text-4xl font-bold font-sans text-white">
                                 {isYearly ? '$6,000' : '$7,500'}<span className="text-lg text-white/50 font-normal">/mo</span>
                             </div>
                             {isYearly && <span className="text-xs text-orange mt-1">Billed $72,000 yearly</span>}
                         </div>
-                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans">
-                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5">✓</span> <span>Full KAI+HAIMDALL across all channels</span></li>
-                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5">✓</span> <span>24/7 human coverage & escalation</span></li>
-                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5">✓</span> <span>Incident response SOP & monthly review</span></li>
+                        <ul className="flex flex-col gap-3 text-sm text-white/70 mb-8 font-sans" aria-label="Institutional Plan Features">
+                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5" aria-hidden="true">✓</span> <span>Full KAI+HAIMDALL across all channels</span></li>
+                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5" aria-hidden="true">✓</span> <span>24/7 human coverage & escalation</span></li>
+                            <li className="flex items-start gap-2"><span className="text-orange mt-0.5" aria-hidden="true">✓</span> <span>Incident response SOP & monthly review</span></li>
                         </ul>
                     </div>
-                    <a href="#demo" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto">Contact Sales</a>
-                </div>
+                    <a href="#demo" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto" aria-label="Contact Sales for Institutional Plan">Contact Sales</a>
+                </article>
             </div>
 
             {/* One Shot Tiers Header */}
@@ -153,15 +155,15 @@ const Membership = () => {
 
             {/* LAUNCH SHIELD TIER (One Shot) */}
             <div className="grid grid-cols-1 w-full mb-32 max-w-3xl mx-auto">
-                <div className="bg-charcoal/50 rounded-2xl p-8 border border-white/10 flex flex-col md:flex-row justify-between items-center md:items-stretch gap-8 relative overflow-hidden group hover:border-teal/30 transition-colors">
+                <article className="bg-charcoal/50 rounded-2xl p-8 border border-white/10 flex flex-col md:flex-row justify-between items-center md:items-stretch gap-8 relative overflow-hidden group hover:border-teal/30 transition-colors" aria-label="Launch Shield Fixed Plan">
                     <div className="flex-1">
                         <h3 className="text-xl font-bold font-sans tracking-tight mb-2 text-white group-hover:text-teal transition-colors">Launch Shield</h3>
-                        <p className="text-xs text-white/60 font-sans mb-6 leading-snug">Projects in the TGE/listing window</p>
-                        <ul className="flex flex-col gap-3 text-sm text-white/80 font-sans">
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Pre-launch hardening + playbook</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Active monitoring hardened</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Launch-day "war room" coverage</span></li>
-                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5">✓</span> <span>Post-launch handoff & daily logs</span></li>
+                        <p className="text-xs text-white/60 font-sans mb-6 leading-snug">Projects in the TGE/listing window needing community guardrails</p>
+                        <ul className="flex flex-col gap-3 text-sm text-white/80 font-sans" aria-label="Launch Shield Plan Features">
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Pre-launch hardening + playbook</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Active monitoring hardened</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Launch-day "war room" coverage</span></li>
+                            <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Post-launch handoff & daily logs</span></li>
                         </ul>
                     </div>
                     <div className="w-full md:w-auto flex flex-col items-center justify-center md:items-end border-t md:border-t-0 md:border-l border-white/10 pt-6 md:pt-0 md:pl-8">
@@ -171,9 +173,9 @@ const Membership = () => {
                             </div>
                             <span className="text-xs text-white/50 mt-1 uppercase tracking-widest font-mono">30-45 Days</span>
                         </div>
-                        <Link to={`/checkout?tier=launch&billing=fixed`} className="w-full md:w-auto px-8 py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center inline-block">Secure Launch Shield</Link>
+                        <Link to={`/checkout?tier=launch&billing=fixed`} className="w-full md:w-auto px-8 py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center inline-block" aria-label="Secure Launch Shield Plan">Secure Launch Shield</Link>
                     </div>
-                </div>
+                </article>
             </div>
 
             {/* Conversion Form */}
@@ -199,6 +201,7 @@ const Membership = () => {
                         <input
                             type="email"
                             placeholder="WORK EMAIL ADDRESS"
+                            aria-label="Work Email Address"
                             className={`w-full bg-charcoal/40 border ${error && error.includes('email') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
                             required
                             value={email}
@@ -209,6 +212,7 @@ const Membership = () => {
                             <input
                                 type="text"
                                 placeholder="COMPANY OR PROTOCOL NAME"
+                                aria-label="Company or Protocol Name"
                                 className="w-full bg-charcoal/40 border border-white/10 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors"
                                 required
                                 value={company}
@@ -218,6 +222,7 @@ const Membership = () => {
                             <input
                                 type="url"
                                 placeholder="LINKEDIN OR X PROFILE URL"
+                                aria-label="LinkedIn or X Profile URL"
                                 className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
                                 required
                                 value={socialProfile}
@@ -227,6 +232,7 @@ const Membership = () => {
 
                         <div className="relative">
                             <select
+                                aria-label="How many messages your community receives daily"
                                 className="w-full bg-teal/10 border border-teal/20 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors appearance-none cursor-pointer"
                                 required
                                 value={messages}

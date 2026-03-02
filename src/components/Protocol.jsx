@@ -91,7 +91,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
     }, [isVoice, isRadar, isLoop]);
 
     return (
-        <div
+        <article
             ref={(el) => (cardsRef.current[index] = el)}
             className="w-full h-auto md:h-[100vh] flex items-center justify-center p-4 md:p-12 mb-8 md:mb-24 last:mb-0"
             // style={{ top: 0, paddingTop: `${index * 2}rem` }} // Slight offset if desired
@@ -114,6 +114,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
                 {/* Animation Container */}
                 <div
                     ref={animRef}
+                    aria-hidden="true"
                     className="hidden md:flex flex-1 w-full h-full min-h-[35vh] md:min-h-[40vh] bg-charcoal rounded-2xl border border-white/5 overflow-hidden items-center justify-center relative perspective-[1000px] mt-8 md:mt-0"
                 >
                     {isVoice && (
@@ -190,7 +191,7 @@ const ProtocolCard = ({ protocol, index, cardsRef }) => {
                     )}
                 </div>
             </div>
-        </div>
+        </article>
     );
 };
 
@@ -251,7 +252,7 @@ const Protocol = () => {
     }, []);
 
     return (
-        <section id="protocol" className="relative w-full bg-black py-24">
+        <section id="protocol" className="relative w-full bg-black py-24" aria-label="Governance Guard Protocols">
             <div className="max-w-6xl mx-auto px-8 md:px-12 mb-16 h-[20vh] flex items-end">
                 <h2 className="text-4xl md:text-6xl font-sans font-semibold tracking-tighter text-white leading-[0.9]">
                     Every <span className="drama-text text-orange font-normal">Conversation</span> <br />

@@ -75,6 +75,7 @@ const Philosophy = () => {
             id="philosophy"
             ref={containerRef}
             className="relative w-full min-h-[80vh] bg-black text-white flex items-center justify-center overflow-hidden py-32"
+            aria-label="KAI Philosophy and ROI"
         >
             {/* Background Paralax Texture */}
             <div
@@ -94,31 +95,32 @@ const Philosophy = () => {
 
                 <div className="flex flex-col gap-12 md:gap-24 w-full">
                     {/* Question 1 */}
-                    <div className="flex flex-col items-center">
-                        <h3 className="text-3xl md:text-5xl lg:text-7xl font-sans font-medium text-white/40 tracking-tight leading-tight max-w-5xl text-balance">
-                            {splitText("KAI didn't just manage our community...", "word-1")}
-                        </h3>
-                    </div>
+                    <article className="flex flex-col items-center">
+                        <h2 className="text-3xl md:text-5xl lg:text-7xl font-sans font-medium text-white/40 tracking-tight leading-tight max-w-5xl text-balance">
+                            {splitText("KAI didn't just manage our Web3 community...", "word-1")}
+                        </h2>
+                    </article>
 
                     {/* Divider */}
-                    <div className="w-px h-16 bg-gradient-to-b from-transparent via-teal to-transparent mx-auto opacity-50"></div>
+                    <div className="w-px h-16 bg-gradient-to-b from-transparent via-teal to-transparent mx-auto opacity-50" aria-hidden="true"></div>
 
                     {/* Question 2 */}
-                    <div className="flex flex-col items-center">
-                        <h3 className="text-4xl md:text-6xl lg:text-8xl font-sans font-bold text-wrap leading-tight max-w-5xl text-center">
+                    <article className="flex flex-col items-center">
+                        <p className="text-4xl md:text-6xl lg:text-8xl font-sans font-bold text-wrap leading-tight max-w-5xl text-center">
                             <span className="text-white text-balance block my-2 md:my-4">
                                 {splitText("KAI brought it to life.", "word-2 text-white")}
                             </span>
-                        </h3>
-                    </div>
+                        </p>
+                    </article>
 
                     {/* Square Video Carousel */}
                     <div className="w-full max-w-5xl mx-auto mt-8 md:mt-16 overflow-hidden">
                         <div className="flex overflow-x-auto snap-x snap-mandatory gap-6 md:gap-12 pb-8 scrollbar-hide px-4 md:px-0">
 
                             {/* Video 1 */}
-                            <div
+                            <button
                                 onClick={() => setActiveVideo('/KAI.mp4')}
+                                aria-label="Play KAI Native Video Case Study"
                                 className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(0,161,159,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center cursor-pointer"
                             >
                                 <video
@@ -139,11 +141,12 @@ const Philosophy = () => {
                                 <div className="absolute bottom-6 left-6 flex items-center gap-3">
                                     <span className="text-xs font-mono tracking-widest text-teal border border-teal/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">KAI NATIVE</span>
                                 </div>
-                            </div>
+                            </button>
 
                             {/* Video 2 */}
-                            <div
+                            <button
                                 onClick={() => setActiveVideo('/KA%20DEF%20STREAMER.mp4')}
+                                aria-label="Play Streamer Support Video Case Study"
                                 className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-white/10 shadow-[0_20px_50px_rgba(247,147,26,0.15)] relative group bg-charcoal/50 flex flex-col justify-center items-center cursor-pointer"
                             >
                                 <video
@@ -164,11 +167,11 @@ const Philosophy = () => {
                                 <div className="absolute bottom-6 left-6 flex items-center gap-3">
                                     <span className="text-xs font-mono tracking-widest text-orange border border-orange/30 px-3 py-1 bg-black/50 backdrop-blur-md rounded-full">STREAMER SUPPORT</span>
                                 </div>
-                            </div>
+                            </button>
 
                             {/* Placeholder for 3rd Video if they add one */}
-                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-dashed border-white/20 relative group bg-black/20 flex flex-col justify-center items-center">
-                                <div className="text-white/30 text-sm font-mono tracking-widest uppercase">Intel Feed Offline</div>
+                            <div className="snap-center shrink-0 w-[85vw] md:w-[45%] aspect-square rounded-3xl overflow-hidden border border-dashed border-white/20 relative group bg-black/20 flex flex-col justify-center items-center" aria-hidden="true">
+                                <span className="text-white/30 text-sm font-mono tracking-widest uppercase">Intel Feed Offline</span>
                             </div>
 
                         </div>
@@ -184,6 +187,7 @@ const Philosophy = () => {
                 >
                     <button
                         onClick={() => setActiveVideo(null)}
+                        aria-label="Close Video Modal"
                         className="absolute top-8 right-8 text-white/50 hover:text-white transition-colors bg-white/5 hover:bg-white/10 p-3 rounded-full z-[110]"
                     >
                         <X className="w-6 h-6" />
