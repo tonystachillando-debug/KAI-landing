@@ -1,5 +1,7 @@
 import React, { useState } from 'react';
 import { Link, useNavigate } from 'react-router-dom';
+import FeatureTable from './FeatureTable';
+import PricingFAQ from './PricingFAQ';
 
 const Membership = () => {
     const [isYearly, setIsYearly] = useState(true);
@@ -177,6 +179,12 @@ const Membership = () => {
                     </div>
                 </article>
             </div>
+
+            {/* Detailed Feature Comparison */}
+            <FeatureTable />
+
+            {/* Pricing FAQ */}
+            <PricingFAQ />
 
             {/* Conversion Form */}
             <div id="demo" className="w-full max-w-3xl bg-teal/10 border border-teal/20 backdrop-blur-md text-white rounded-3xl p-10 md:p-14 shadow-[0_30px_60px_rgba(0,161,159,0.2)] flex flex-col gap-8 mx-auto">

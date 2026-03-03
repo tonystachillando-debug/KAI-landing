@@ -91,9 +91,9 @@ const Hero = () => {
 
                     <div className="overflow-hidden mt-10">
                         <div ref={addToRefs} className="flex flex-col sm:flex-row gap-6 items-start sm:items-center">
-                            <Link to="/checkout" aria-label="Start 14-day live pilot for KAI" className="px-8 py-4 bg-orange text-white rounded-full font-sans font-bold tracking-wider text-sm transition-transform hover:scale-105 shadow-[0_0_30px_rgba(247,147,26,0.3)] inline-block text-center text-nowrap">
+                            <a href="#scale" aria-label="Start 14-day live pilot for KAI" className="px-8 py-4 bg-orange text-white rounded-full font-sans font-bold tracking-wider text-sm transition-transform hover:scale-105 shadow-[0_0_30px_rgba(247,147,26,0.3)] inline-block text-center text-nowrap">
                                 START 14-DAY LIVE PILOT
-                            </Link>
+                            </a>
                             <div className="flex flex-col gap-1 text-xs font-mono text-white/50 uppercase">
                                 <span className="flex items-center gap-2"><span className="text-orange">✓</span> Eliminate 99% of spam</span>
                                 <span className="flex items-center gap-2"><span className="text-orange">✓</span> Setup in under 5 minutes</span>

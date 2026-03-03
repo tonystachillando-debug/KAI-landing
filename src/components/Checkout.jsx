@@ -66,16 +66,58 @@ const Checkout = () => {
                         <span className="text-xl text-white/50 font-normal">{displayPeriod}</span>
                     </div>
 
-                    <ul className="flex flex-col gap-4 text-sm text-white/70 font-sans border-t border-white/10 pt-8">
+                    <ul className="flex flex-col gap-4 text-sm text-white/70 font-sans border-t border-white/10 pt-8 mb-8">
                         <li className="flex items-center gap-3"><span className="text-teal">✓</span> Deploy on Telegram, Discord, X</li>
                         <li className="flex items-center gap-3"><span className="text-teal">✓</span> HAIMDALL Threat Detection</li>
                         <li className="flex items-center gap-3"><span className="text-orange">✓</span> {selectedTier.desc}</li>
                     </ul>
+
+                    {/* Onboarding Timeline */}
+                    <div className="bg-white/5 rounded-xl p-6 border border-white/10 mb-8 hidden md:block">
+                        <h3 className="text-white/80 font-bold text-xs uppercase tracking-widest mb-6">What happens next</h3>
+                        <div className="flex flex-col gap-5 relative">
+                            {/* Vertical Line */}
+                            <div className="absolute left-[11px] top-2 bottom-2 w-px bg-white/10"></div>
+
+                            <div className="relative flex gap-4 items-start">
+                                <div className="w-6 h-6 rounded-full bg-teal text-black flex items-center justify-center font-bold text-xs shadow-[0_0_10px_rgba(0,161,159,0.3)] z-10 shrink-0">1</div>
+                                <div>
+                                    <h4 className="text-white text-sm font-bold leading-none mb-1">Secure Payment</h4>
+                                    <p className="text-white/50 text-xs">Instant receipt & contract generation</p>
+                                </div>
+                            </div>
+
+                            <div className="relative flex gap-4 items-start">
+                                <div className="w-6 h-6 rounded-full bg-[#111] border border-white/20 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">2</div>
+                                <div>
+                                    <h4 className="text-white text-sm font-bold leading-none mb-1">Dashboard Access</h4>
+                                    <p className="text-white/50 text-xs">Login credentials sent via email</p>
+                                </div>
+                            </div>
+
+                            <div className="relative flex gap-4 items-start">
+                                <div className="w-6 h-6 rounded-full bg-[#111] border border-white/20 text-white flex items-center justify-center font-bold text-xs z-10 shrink-0">3</div>
+                                <div>
+                                    <h4 className="text-white text-sm font-bold leading-none mb-1">Setup Call (Optional)</h4>
+                                    <p className="text-white/50 text-xs">Book a technical onboarding session</p>
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+
+                    {/* Social Proof / Mini Testimonial */}
+                    <div className="mb-4">
+                        <p className="text-white/60 text-sm italic border-l-2 border-teal/50 pl-4 py-1">
+                            "KAI neutralized a 10k bot flood on our TGE day without human intervention."
+                        </p>
+                    </div>
                 </div>
 
-                <div className="relative z-10 mt-16 text-xs font-mono text-white/30 flex items-center justify-between border-t border-white/5 pt-8">
-                    <span>Powered by AmaZix</span>
-                    <span>Encrypted Connection</span>
+                <div className="relative z-10 mt-8 text-xs font-mono flex flex-col gap-3 border-t border-white/5 pt-8">
+                    <div className="flex items-center justify-between text-white/30">
+                        <span>Powered by AmaZix</span>
+                        <span className="flex items-center gap-1"><svg className="w-3 h-3" fill="none" viewBox="0 0 24 24" stroke="currentColor"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 15v2m-6 4h12a2 2 0 002-2v-6a2 2 0 00-2-2H6a2 2 0 00-2 2v6a2 2 0 002 2zm10-10V7a4 4 0 00-8 0v4h8z" /></svg> End-to-End Encrypted</span>
+                    </div>
                 </div>
             </div>
 
@@ -229,6 +271,20 @@ const Checkout = () => {
                                     {/* Hover effect highlight */}
                                     <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity z-0 pointer-events-none" />
                                 </button>
+
+                                {/* Risk Reversal */}
+                                <div className="text-center mt-4 hidden md:block">
+                                    <p className="text-white/40 text-xs font-sans">
+                                        <span className="text-white/70">14-Day Pilot Guarantee:</span> Cancel anytime during your first 14 days for a full refund if KAI doesn't meet your SLA.
+                                    </p>
+                                </div>
+
+                                {/* Support Link */}
+                                <div className="text-center mt-6 border-t border-white/5 pt-6">
+                                    <p className="text-white/50 text-sm font-sans">
+                                        Need help with your order? <a href="mailto:support@amazix.com" className="text-teal hover:text-orange transition-colors underline underline-offset-4 pointer-events-auto">Contact Support</a>
+                                    </p>
+                                </div>
                             </form>
                         </div>
                     )}
