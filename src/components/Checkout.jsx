@@ -194,24 +194,11 @@ const Checkout = () => {
 
                                 {/* CRYPTO TAB */}
                                 {paymentMethod === 'crypto' && (
-                                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500">
-                                        <div className="p-6 bg-charcoal border border-white/10 rounded-2xl flex flex-col gap-4 relative overflow-hidden group">
-                                            <div className="absolute inset-0 bg-gradient-to-r from-orange/5 to-transparent opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none" />
-
-                                            <div className="flex justify-between items-center mb-4">
-                                                <span className="font-mono text-xs text-white/50">Supported Networks</span>
-                                                <div className="flex gap-2">
-                                                    <span className="px-2 py-1 bg-white/5 rounded text-[10px] text-white/80">ERC20</span>
-                                                    <span className="px-2 py-1 bg-white/5 rounded text-[10px] text-white/80">SPL</span>
-                                                </div>
-                                            </div>
-
-                                            <div className="relative mb-2">
-                                                <input type="text" value="0x892a...B3F9" readOnly className="w-full bg-black border border-white/10 rounded-xl px-4 py-4 text-sm font-mono text-white/80 focus:outline-none" />
-                                                <button type="button" className="absolute right-2 top-1/2 -translate-y-1/2 px-4 py-2 bg-white/10 hover:bg-white/20 rounded-lg text-xs font-bold transition-colors">Copy</button>
-                                            </div>
-
-                                            <p className="text-xs text-white/40 font-mono">Send exactly {priceNumber === '0' ? '0.00' : `${priceNumber}.00`} USDT to initialize.</p>
+                                    <div className="animate-in fade-in slide-in-from-bottom-4 duration-500 flex justify-center w-full">
+                                        <div className="w-full max-w-[410px] rounded-2xl overflow-hidden bg-transparent border border-white/5 shadow-[0_0_30px_rgba(0,161,159,0.1)] mx-auto">
+                                            <iframe src="https://nowpayments.io/embeds/payment-widget?iid=4705652548" width="100%" height="696" frameBorder="0" scrolling="no" style={{ overflowY: 'hidden' }} title="NowPayments Checkout">
+                                                Can't load widget
+                                            </iframe>
                                         </div>
                                     </div>
                                 )}
@@ -248,29 +235,31 @@ const Checkout = () => {
                                     </div>
                                 )}
 
-                                <button
-                                    type="submit"
-                                    disabled={isProcessing}
-                                    className="mt-6 w-full py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 relative overflow-hidden group shadow-[0_10px_30px_rgba(247,147,26,0.2)] disabled:opacity-70 disabled:cursor-not-allowed
-                                               bg-gradient-to-r from-orange to-[#ffad4d] text-white hover:shadow-[0_10px_40px_rgba(247,147,26,0.4)]"
-                                >
-                                    <span className={`flex justify-center items-center relative z-10 transition-opacity ${isProcessing ? 'opacity-0' : 'opacity-100'}`}>
-                                        {paymentMethod === 'crypto' ? 'AWAITING DEPOSIT' : `PAY ${selectedTier.price}`}
-                                    </span>
+                                {paymentMethod === 'card' && (
+                                    <button
+                                        type="submit"
+                                        disabled={isProcessing}
+                                        className="mt-6 w-full py-4 rounded-xl font-bold text-sm tracking-wider uppercase transition-all duration-300 relative overflow-hidden group shadow-[0_10px_30px_rgba(0,161,159,0.2)] disabled:opacity-70 disabled:cursor-not-allowed
+                                                   bg-teal text-black hover:shadow-[0_10px_40px_rgba(0,161,159,0.4)]"
+                                    >
+                                        <span className={`flex justify-center items-center relative z-10 transition-opacity ${isProcessing ? 'opacity-0' : 'opacity-100'}`}>
+                                            PAY {selectedTier.price}
+                                        </span>
 
-                                    {/* Loading State Spinner */}
-                                    {isProcessing && (
-                                        <div className="absolute inset-0 flex items-center justify-center z-20">
-                                            <svg className="animate-spin h-5 w-5 text-white" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
-                                                <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
-                                                <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
-                                            </svg>
-                                        </div>
-                                    )}
+                                        {/* Loading State Spinner */}
+                                        {isProcessing && (
+                                            <div className="absolute inset-0 flex items-center justify-center z-20">
+                                                <svg className="animate-spin h-5 w-5 text-black" xmlns="http://www.w3.org/2000/svg" fill="none" viewBox="0 0 24 24">
+                                                    <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4"></circle>
+                                                    <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
+                                                </svg>
+                                            </div>
+                                        )}
 
-                                    {/* Hover effect highlight */}
-                                    <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity z-0 pointer-events-none" />
-                                </button>
+                                        {/* Hover effect highlight */}
+                                        <div className="absolute inset-0 bg-white opacity-0 group-hover:opacity-20 transition-opacity z-0 pointer-events-none" />
+                                    </button>
+                                )}
 
                                 {/* Risk Reversal */}
                                 <div className="text-center mt-4 hidden md:block">
