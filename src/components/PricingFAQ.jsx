@@ -18,6 +18,10 @@ const faqs = [
         answer: "After the 30-45 day TGE or launch window, we provide a full post-mortem Governance Report. You can then choose to transition into a standard Growth Guard or Institutional tier without any interruption in service, retaining all historical threat data."
     },
     {
+        question: "How does the 14-Day Pilot work?",
+        answer: "We offer a 14-day live pilot in your production environment instead of a limited sandbox. Tell us about your community, select the plan you're interested in, and experience the full governance impact on your actual community before making your first ongoing payment. If KAI doesn't scale the trust, you don't pay."
+    },
+    {
         question: "Is KAI fully autonomous or human-assisted?",
         answer: "KAI handles 98% of basic moderation and threat mitigation autonomously via HAIMDALL. The remaining 2% of nuanced escalations are routed to our human intelligence team (for Institutional and Launch Shield tiers) or escalated to your designated community managers."
     }

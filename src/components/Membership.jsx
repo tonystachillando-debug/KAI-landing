@@ -9,6 +9,7 @@ const Membership = () => {
     const [company, setCompany] = useState('');
     const [socialProfile, setSocialProfile] = useState('');
     const [messages, setMessages] = useState('');
+    const [plan, setPlan] = useState('');
     const [error, setError] = useState('');
     const [isSubmitting, setIsSubmitting] = useState(false);
     const navigate = useNavigate();
@@ -44,6 +45,7 @@ const Membership = () => {
                     company: company,
                     socialProfile: socialProfile,
                     messages: messages,
+                    planInterest: plan,
                     _template: 'box'
                 })
             });
@@ -238,22 +240,43 @@ const Membership = () => {
                             />
                         </div>
 
-                        <div className="relative">
-                            <select
-                                aria-label="How many messages your community receives daily"
-                                className="w-full bg-teal/10 border border-teal/20 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors appearance-none cursor-pointer"
-                                required
-                                value={messages}
-                                onChange={(e) => setMessages(e.target.value)}
-                            >
-                                <option value="" disabled className="bg-charcoal text-white/50">HOW MANY MESSAGES YOUR COMMUNITY RECEIVES DAILY?</option>
-                                <option value="0-1k" className="bg-charcoal">Under 1,000</option>
-                                <option value="1k-10k" className="bg-charcoal">1,000 - 10,000</option>
-                                <option value="10k-50k" className="bg-charcoal">10,000 - 50,000</option>
-                                <option value="50k+" className="bg-charcoal">50,000+</option>
-                            </select>
-                            <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/50">
-                                <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                        <div className="flex flex-col md:flex-row gap-4 w-full">
+                            <div className="relative w-full">
+                                <select
+                                    aria-label="Which plan are you interested in?"
+                                    className="w-full bg-teal/10 border border-teal/20 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors appearance-none cursor-pointer"
+                                    required
+                                    value={plan}
+                                    onChange={(e) => setPlan(e.target.value)}
+                                >
+                                    <option value="" disabled className="bg-charcoal text-white/50">WHICH PLAN ARE YOU INTERESTED IN?</option>
+                                    <option value="Starter" className="bg-charcoal">Starter ($79/mo)</option>
+                                    <option value="Growth Guard" className="bg-charcoal">Growth Guard ($799/mo)</option>
+                                    <option value="Institutional" className="bg-charcoal">Institutional ($6k/mo)</option>
+                                    <option value="Launch Shield" className="bg-charcoal">Launch Shield (One-Shot)</option>
+                                </select>
+                                <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/50">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                </div>
+                            </div>
+
+                            <div className="relative w-full">
+                                <select
+                                    aria-label="How many messages your community receives daily"
+                                    className="w-full bg-teal/10 border border-teal/20 rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 transition-colors appearance-none cursor-pointer"
+                                    required
+                                    value={messages}
+                                    onChange={(e) => setMessages(e.target.value)}
+                                >
+                                    <option value="" disabled className="bg-charcoal text-white/50">MESSAGES RECEIVED DAILY?</option>
+                                    <option value="0-1k" className="bg-charcoal">Under 1,000</option>
+                                    <option value="1k-10k" className="bg-charcoal">1,000 - 10,000</option>
+                                    <option value="10k-50k" className="bg-charcoal">10,000 - 50,000</option>
+                                    <option value="50k+" className="bg-charcoal">50,000+</option>
+                                </select>
+                                <div className="absolute inset-y-0 right-0 flex items-center px-4 pointer-events-none text-white/50">
+                                    <svg className="w-4 h-4" fill="none" stroke="currentColor" viewBox="0 0 24 24" xmlns="http://www.w3.org/2000/svg"><path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M19 9l-7 7-7-7" /></svg>
+                                </div>
                             </div>
                         </div>
 
