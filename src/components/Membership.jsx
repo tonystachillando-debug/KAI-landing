@@ -44,7 +44,7 @@ Kind regards,
 AmaZix Team`;
 
         try {
-            await fetch('https://formsubmit.co/ajax/sales@amazix.com', {
+            const response = await fetch('/api/send_mail.php', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -62,6 +62,10 @@ AmaZix Team`;
                     _template: 'box'
                 })
             });
+
+            if (!response.ok) {
+                throw new Error('Network response was not ok');
+            }
 
             // Redirect to thank you page after successful submission
             navigate('/thank-you');
