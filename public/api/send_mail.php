@@ -41,8 +41,8 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     }
 
     // Configura gli headers dell'email principale
-    $fromAddress = "noreply@amazix.ai";
-    $headers = "From: " . $fromAddress . "\r\n";
+    $fromAddress = "noreply@amazix.com";
+    $headers = "From: KAI - AmaZix <" . $fromAddress . ">\r\n";
     if ($userEmail) {
         $headers .= "Reply-To: " . strip_tags($userEmail) . "\r\n";
     }
@@ -59,7 +59,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
         $autoSubject = "Thank you for contacting KAI";
         $autoBody = strip_tags($data['_autoresponse']);
         
-        $autoHeaders = "From: noreply@amazix.ai\r\n";
+        $autoHeaders = "From: KAI - AmaZix <noreply@amazix.com>\r\n";
         $autoHeaders .= "Reply-To: " . $to . "\r\n";
         $autoHeaders .= "X-Mailer: PHP/" . phpversion();
 
