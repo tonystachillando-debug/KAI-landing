@@ -23,7 +23,7 @@ const BookCallModal = ({ isOpen, onClose }) => {
     };
 
     const validateUrl = (url) => {
-        const urlPattern = /^(https?:\/\/)[^\s]+$/i;
+        const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i;
         if (!urlPattern.test(url)) return false;
 
         const lowerUrl = url.toLowerCase();
@@ -40,11 +40,23 @@ const BookCallModal = ({ isOpen, onClose }) => {
         }
 
         if (!validateUrl(formData.companyLink)) {
-            setError('Please provide a valid LinkedIn or X (Twitter) URL (must start with http:// or https://).');
+            setError('Please provide a valid LinkedIn or X (Twitter) URL.');
             return;
         }
 
         setIsSubmitting(true);
+
+        const autoresponseMessage = `Hello,
+
+Thank you for showing interest in KAI.
+
+We have received your message and our team will review it shortly. If your inquiry relates to a potential partnership, project collaboration, or community management services, the relevant member of our team will follow up with you in due course.
+
+In the meantime, you may learn more about AmaZix at:
+- https://amazix.com
+
+Kind regards,
+AmaZix Team`;
 
         try {
             await fetch('https://formsubmit.co/ajax/sales@amazix.com', {
@@ -56,6 +68,8 @@ const BookCallModal = ({ isOpen, onClose }) => {
                 body: JSON.stringify({
                     _subject: 'New Book a Call Request',
                     _cc: 'antonio.visceglia@amazix.com',
+                    _autoresponse: autoresponseMessage,
+                    email: formData.workEmail,
                     workEmail: formData.workEmail,
                     fullName: formData.fullName,
                     companyName: formData.companyName,
@@ -139,9 +153,9 @@ const BookCallModal = ({ isOpen, onClose }) => {
                             <div className="flex flex-col gap-1">
                                 <label className="text-xs font-mono uppercase tracking-widest text-white/50 ml-2">LinkedIn or X URL</label>
                                 <input
-                                    type="url"
+                                    type="text"
                                     required
-                                    placeholder="https://"
+                                    placeholder="www.linkedin.com/in/..."
                                     className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-5 py-4 text-sm font-sans text-white focus:outline-none focus:border-teal/50 focus:bg-charcoal transition-colors`}
                                     value={formData.companyLink}
                                     onChange={(e) => setFormData({ ...formData, companyLink: e.target.value })}

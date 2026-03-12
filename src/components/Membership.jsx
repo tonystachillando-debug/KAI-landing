@@ -23,13 +23,25 @@ const Membership = () => {
             return;
         }
 
-        const urlPattern = /^(https?:\/\/)[^\s]+$/i;
+        const urlPattern = /^(https?:\/\/)?([\w-]+\.)+[\w-]+(\/[\w-./?%&=]*)?$/i;
         if (!urlPattern.test(socialProfile)) {
-            setError('Please provide a valid URL (must start with http:// or https://).');
+            setError('Please provide a valid URL.');
             return;
         }
 
         setIsSubmitting(true);
+
+        const autoresponseMessage = `Hello,
+
+Thank you for showing interest in KAI.
+
+We have received your message and our team will review it shortly. If your inquiry relates to a potential partnership, project collaboration, or community management services, the relevant member of our team will follow up with you in due course.
+
+In the meantime, you may learn more about AmaZix at:
+- https://amazix.com
+
+Kind regards,
+AmaZix Team`;
 
         try {
             await fetch('https://formsubmit.co/ajax/sales@amazix.com', {
@@ -41,6 +53,7 @@ const Membership = () => {
                 body: JSON.stringify({
                     _subject: 'New KAI Pilot Request!',
                     _cc: 'antonio.visceglia@amazix.com',
+                    _autoresponse: autoresponseMessage,
                     email: email,
                     company: company,
                     socialProfile: socialProfile,
@@ -230,7 +243,7 @@ const Membership = () => {
                             />
 
                             <input
-                                type="url"
+                                type="text"
                                 placeholder="LINKEDIN OR X PROFILE URL"
                                 aria-label="LinkedIn or X Profile URL"
                                 className={`w-full bg-charcoal/40 border ${error && error.includes('URL') ? 'border-red-500/50' : 'border-white/10'} rounded-xl px-6 py-4 text-sm font-sans text-white focus:outline-none focus:border-orange/50 focus:bg-charcoal transition-colors`}
