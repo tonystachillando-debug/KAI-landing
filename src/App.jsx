@@ -13,20 +13,27 @@ import Membership from './components/Membership';
 import Footer from './components/Footer';
 import Checkout from './components/Checkout';
 
-const LandingPage = () => (
-  <main className="min-h-screen relative w-full overflow-hidden bg-black text-white">
-    <Navbar />
-    <Hero />
-    <TrustBanner />
-    <Integrations />
-    <CinematicDashboard />
-    <Features />
-    <Philosophy />
-    <Protocol />
-    <Membership />
-    <Footer />
-  </main>
-);
+import BookCallModal from './components/BookCallModal';
+
+const LandingPage = () => {
+  const [isModalOpen, setIsModalOpen] = React.useState(false);
+
+  return (
+    <main className="min-h-screen relative w-full overflow-hidden bg-black text-white">
+      <Navbar onOpenModal={() => setIsModalOpen(true)} />
+      <Hero />
+      <TrustBanner />
+      <Integrations />
+      <CinematicDashboard />
+      <Features />
+      <Philosophy />
+      <Protocol />
+      <Membership />
+      <Footer onOpenModal={() => setIsModalOpen(true)} />
+      <BookCallModal isOpen={isModalOpen} onClose={() => setIsModalOpen(false)} />
+    </main>
+  );
+};
 
 function App() {
   return (

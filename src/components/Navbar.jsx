@@ -5,7 +5,7 @@ import { Menu } from 'lucide-react';
 
 gsap.registerPlugin(ScrollTrigger);
 
-const Navbar = () => {
+const Navbar = ({ onOpenModal }) => {
     const [isScrolled, setIsScrolled] = useState(false);
     const navRef = useRef(null);
 
@@ -40,7 +40,6 @@ const Navbar = () => {
                     <a href="#features" className="hover:text-teal transition-colors">Features</a>
                     <a href="#protocol" className="hover:text-teal transition-colors">Protocol</a>
                     <a href="#scale" className="hover:text-teal transition-colors">Pricing</a>
-                    <a href="#demo" className="hover:text-teal transition-colors">Book a Call</a>
                 </div>
                 <a
                     href="#scale"

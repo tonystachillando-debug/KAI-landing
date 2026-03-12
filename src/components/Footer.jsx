@@ -1,6 +1,6 @@
 import React from 'react';
 
-const Footer = () => {
+const Footer = ({ onOpenModal }) => {
     return (
         <footer className="w-full bg-black text-white pt-24 pb-12 px-8 rounded-t-3xl flex flex-col justify-between mt-24 border-t border-white/5 shadow-[0_-50px_100px_rgba(0,161,159,0.05)]">
             <div className="max-w-7xl mx-auto w-full flex flex-col md:flex-row justify-between items-start gap-12 mb-32">
@@ -27,7 +27,6 @@ const Footer = () => {
                     </div>
                     <div className="flex flex-col gap-4 text-sm font-sans">
                         <h4 className="font-semibold text-white/50 mb-2 uppercase tracking-widest text-[10px] font-mono">Connect</h4>
-                        <a href="#demo" className="hover:text-orange transition-colors">Book a Call</a>
                         <a href="https://x.com/AmaZixOfficial" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors">Twitter / X</a>
                         <a href="https://t.me/amazix" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors">Telegram Support</a>
                         <a href="https://amazix.com" target="_blank" rel="noopener noreferrer" className="hover:text-orange transition-colors">AmaZix Website</a>

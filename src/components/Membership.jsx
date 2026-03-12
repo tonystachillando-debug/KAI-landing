@@ -1,5 +1,5 @@
 import React, { useState } from 'react';
-import { Link, useNavigate } from 'react-router-dom';
+import { useNavigate } from 'react-router-dom';
 import FeatureTable from './FeatureTable';
 import PricingFAQ from './PricingFAQ';
 
@@ -32,15 +32,15 @@ const Membership = () => {
         setIsSubmitting(true);
 
         try {
-            await fetch('https://formsubmit.co/ajax/antonio.visceglia@amazix.com', {
+            await fetch('https://formsubmit.co/ajax/sales@amazix.com', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
                     'Accept': 'application/json'
                 },
                 body: JSON.stringify({
-                    _cc: 'mitchell.mahaffey@amazix.com',
                     _subject: 'New KAI Pilot Request!',
+                    _cc: 'antonio.visceglia@amazix.com',
                     email: email,
                     company: company,
                     socialProfile: socialProfile,
@@ -106,7 +106,7 @@ const Membership = () => {
                             <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Capped KAI engagement</span></li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=starter&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto" aria-label="Initialize Starter Plan">Initialize Starter</Link>
+                    <a href="#demo" onClick={() => setPlan('Starter')} className="w-full py-3 rounded-xl bg-teal text-black font-bold text-sm hover:bg-teal/90 transition-colors text-center block mt-auto" aria-label="Initialize Starter Plan">Initialize Starter</a>
                 </article>
 
                 {/* GROWTH GUARD TIER */}
@@ -126,7 +126,7 @@ const Membership = () => {
                             <li className="flex items-start gap-2"><span className="text-teal mt-0.5" aria-hidden="true">✓</span> <span>Defined escalation windows</span></li>
                         </ul>
                     </div>
-                    <Link to={`/checkout?tier=growth&billing=${isYearly ? 'yearly' : 'monthly'}`} className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto" aria-label="Deploy Growth Guard Plan">Deploy Growth Guard</Link>
+                    <a href="#demo" onClick={() => setPlan('Growth Guard')} className="w-full py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center block mt-auto" aria-label="Deploy Growth Guard Plan">Deploy Growth Guard</a>
                 </article>
 
                 {/* INSTITUTIONAL TIER */}
@@ -146,7 +146,7 @@ const Membership = () => {
                             <li className="flex items-start gap-2"><span className="text-orange mt-0.5" aria-hidden="true">✓</span> <span>Incident response SOP & monthly review</span></li>
                         </ul>
                     </div>
-                    <a href="#demo" className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto" aria-label="Contact Sales for Institutional Plan">Contact Sales</a>
+                    <a href="#demo" onClick={() => setPlan('Institutional')} className="w-full py-3 rounded-xl bg-orange text-white font-bold text-sm hover:bg-orange/90 transition-colors text-center block mt-auto" aria-label="Contact Sales for Institutional Plan">Contact Sales</a>
                 </article>
             </div>
 
@@ -177,7 +177,7 @@ const Membership = () => {
                             </div>
                             <span className="text-xs text-white/50 mt-1 uppercase tracking-widest font-mono">30-45 Days</span>
                         </div>
-                        <Link to={`/checkout?tier=launch&billing=fixed`} className="w-full md:w-auto px-8 py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center inline-block" aria-label="Secure Launch Shield Plan">Secure Launch Shield</Link>
+                        <a href="#demo" onClick={() => setPlan('Launch Shield')} className="w-full md:w-auto px-8 py-3 rounded-xl border border-white/20 text-white font-semibold text-sm hover:bg-white/5 transition-colors text-center inline-block" aria-label="Secure Launch Shield Plan">Secure Launch Shield</a>
                     </div>
                 </article>
             </div>
