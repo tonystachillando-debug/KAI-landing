@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { X } from 'lucide-react';
+import { trackScheduleCall } from '../lib/analytics';
 
 const BookCallModal = ({ isOpen, onClose }) => {
     const [step, setStep] = useState(1); // 1: form, 2: thank you
@@ -83,6 +84,7 @@ AmaZix Team`;
             }
 
             setIsSubmitting(false);
+            trackScheduleCall();
             setStep(2); // Go to thank you step
         } catch (err) {
             console.error('Submission failed', err);

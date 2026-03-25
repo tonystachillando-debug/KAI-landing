@@ -1,5 +1,6 @@
 import React, { useState } from 'react';
 import { useSearchParams } from 'react-router-dom';
+import { trackBeginCheckout } from '../lib/analytics';
 
 const Checkout = () => {
     const [searchParams] = useSearchParams();
@@ -13,6 +14,7 @@ const Checkout = () => {
 
     const handleRegistrationSubmit = (e) => {
         e.preventDefault();
+        trackBeginCheckout(tier, priceNumber);
         setStep(2);
     };
 

@@ -1,5 +1,6 @@
-import React from 'react';
-import { Routes, Route } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Routes, Route, useLocation } from 'react-router-dom';
+import { trackPageView } from './lib/analytics';
 import Navbar from './components/Navbar';
 import Hero from './components/Hero';
 import ThankYou from './components/ThankYou';
@@ -35,9 +36,18 @@ const LandingPage = () => {
   );
 };
 
+function RouteTracker() {
+  const location = useLocation();
+  useEffect(() => {
+    trackPageView(location.pathname + location.search);
+  }, [location]);
+  return null;
+}
+
 function App() {
   return (
     <Routes>
+      <Route path="/*" element={<RouteTracker />} />
       <Route path="/" element={<LandingPage />} />
       <Route path="/checkout" element={<Checkout />} />
       <Route path="/thank-you" element={<ThankYou />} />

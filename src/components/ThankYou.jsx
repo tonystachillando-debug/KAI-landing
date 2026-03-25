@@ -1,7 +1,17 @@
-import React from 'react';
-import { Link } from 'react-router-dom';
+import React, { useEffect } from 'react';
+import { Link, useSearchParams } from 'react-router-dom';
+import { trackPurchase } from '../lib/analytics';
 
 const ThankYou = () => {
+    const [searchParams] = useSearchParams();
+
+    useEffect(() => {
+        const plan = searchParams.get('plan') || 'unknown';
+        const value = parseFloat(searchParams.get('value')) || 0;
+        trackPurchase(plan, value);
+        // eslint-disable-next-line react-hooks/exhaustive-deps
+    }, []);
+
     return (
         <main className="min-h-screen flex flex-col items-center justify-center bg-black text-white relative w-full overflow-hidden">
              {/* Background Effects */}
