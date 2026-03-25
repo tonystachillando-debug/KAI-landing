@@ -34,3 +34,4 @@ jobs:
           password: ${{ secrets.FTP_PASSWORD }}
           server-dir: ./amazix.ai/public_html/
           local-dir: ./dist/
+          dangerous-clean-slate: true
